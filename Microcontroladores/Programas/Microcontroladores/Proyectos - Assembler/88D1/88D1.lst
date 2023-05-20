@@ -1,0 +1,2543 @@
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (PROCESSOR)
+Warning[215]: Processor superseded by command line.  Verify processor symbol.
+                      00001 PROCESSOR       P16F887
+                      00002                 INCLUDE         <P16F887.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F887 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00809         LIST
+                      00003 
+2007   20D4           00004                 __CONFIG _CONFIG1, (_INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF &
+                             _CPD_OFF & _BOR_OFF & _IESO_OFF & _FCMEN_OFF & _LVP_OFF & _DEBUG_OFF)
+2008   3FFF           00005                 __CONFIG _CONFIG2, (_WRT_OFF & _BOR40V)
+                      00006 
+0000                  00007                 ORG     0x00    
+                      00008 
+  00000020            00009 CON             EQU     0x20
+                      00010 
+0000   1683 1703      00011         BANKSEL ANSEL   ;CAMBIO BANCO 3
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0188           00012                 CLRF    ANSEL
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   0189           00013                 CLRF    ANSELH
+                      00014         
+0004   1683 1303      00015                 BANKSEL TRISA   ;CAMBIO BANCO 1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0006   0185           00016                 CLRF    TRISA   
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0007   0186           00017                 CLRF    TRISB
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0008   0187           00018                 CLRF    TRISC
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0188           00019                 CLRF    TRISD
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+000A   0189           00020                 CLRF    TRISE
+                      00021 
+000B   30D1           00022                 MOVLW   0xD1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+000C   0081           00023                 MOVWF   OPTION_REG
+                      00024                 
+                      00025 ;               CLRF    ADRESH
+                      00026 ;       CLRF    ADRESL
+                      00027 ;       MOVLW   0XD5
+                      00028 ;       MOVWF   ADCON0
+                      00029 ;    
+                      00030 ;       BANKSEL ADCON1
+                      00031 ;       CLRF    ADCON1
+                      00032 
+000D   1283 1303      00033                 BANKSEL PORTA   ;CAMBIO BANCO 0 
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00034 
+000F   301E           00035 INI             MOVLW   0x1E
+0010   00A0           00036                 MOVWF   CON
+0011   2812           00037                 GOTO    FR1
+                      00038 
+0012   30FE           00039 FR1             MOVLW   0xFE
+0013   0085           00040                 MOVWF   PORTA
+0014   3010           00041                 MOVLW   0x10
+0015   0087           00042                 MOVWF   PORTC
+0016   2522           00043                 CALL    RET
+                      00044 
+0017   0BA0           00045                 DECFSZ  CON,1
+0018   2812           00046                 GOTO    FR1
+                      00047 
+0019   301E           00048         MOVLW   0x1E
+001A   00A0           00049         MOVWF   CON
+                      00050 
+001B   30FE           00051 FR2             MOVLW   0xFE
+001C   0085           00052                 MOVWF   PORTA
+001D   3011           00053                 MOVLW   0x11
+001E   0087           00054                 MOVWF   PORTC
+001F   2522           00055                 CALL    RET
+                      00056 
+0020   30FD           00057                 MOVLW   0xFD
+0021   0085           00058                 MOVWF   PORTA
+0022   3001           00059                 MOVLW   0x01
+0023   0087           00060                 MOVWF   PORTC
+0024   2522           00061                 CALL    RET
+                      00062 
+0025   0BA0           00063                 DECFSZ  CON,1
+0026   281B           00064                 GOTO    FR2
+                      00065 
+0027   301E           00066         MOVLW   0x1E
+0028   00A0           00067         MOVWF   CON
+                      00068 
+0029   30FE           00069 FR3             MOVLW   0xFE
+002A   0085           00070                 MOVWF   PORTA
+002B   3003           00071                 MOVLW   0x03
+002C   0087           00072                 MOVWF   PORTC
+002D   2522           00073                 CALL    RET
+                      00074 
+002E   30FD           00075                 MOVLW   0xFD
+002F   0085           00076                 MOVWF   PORTA
+0030   3013           00077                 MOVLW   0x13
+0031   0087           00078                 MOVWF   PORTC
+0032   2522           00079                 CALL    RET
+                      00080                 
+0033   0BA0           00081                 DECFSZ  CON,1
+0034   2829           00082                 GOTO    FR3
+                      00083 
+0035   301E           00084         MOVLW   0x1E
+0036   00A0           00085         MOVWF   CON
+                      00086 
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0037   30FE           00087 FR4             MOVLW   0xFE
+0038   0085           00088                 MOVWF   PORTA
+0039   3007           00089                 MOVLW   0x07
+003A   0087           00090                 MOVWF   PORTC
+003B   2522           00091                 CALL    RET
+                      00092 
+003C   30FD           00093                 MOVLW   0xFD
+003D   0085           00094                 MOVWF   PORTA
+003E   3007           00095                 MOVLW   0x07
+003F   0087           00096                 MOVWF   PORTC
+0040   2522           00097                 CALL    RET
+                      00098 
+0041   30FB           00099                 MOVLW   0xFB
+0042   0085           00100                 MOVWF   PORTA
+0043   3010           00101                 MOVLW   0x10
+0044   0087           00102                 MOVWF   PORTC
+0045   2522           00103                 CALL    RET
+                      00104                 
+0046   0BA0           00105                 DECFSZ  CON,1
+0047   2837           00106                 GOTO    FR4
+                      00107 
+0048   301E           00108         MOVLW   0x1E
+0049   00A0           00109         MOVWF   CON
+                      00110 
+004A   30FE           00111 FR5             MOVLW   0xFE
+004B   0085           00112                 MOVWF   PORTA
+004C   300E           00113                 MOVLW   0x0E
+004D   0087           00114                 MOVWF   PORTC
+004E   2522           00115                 CALL    RET
+                      00116 
+004F   30FD           00117                 MOVLW   0xFD
+0050   0085           00118                 MOVWF   PORTA
+0051   300E           00119                 MOVLW   0x0E
+0052   0087           00120                 MOVWF   PORTC
+0053   2522           00121                 CALL    RET
+                      00122 
+0054   30F7           00123                 MOVLW   0xF7
+0055   0085           00124                 MOVWF   PORTA
+0056   3010           00125                 MOVLW   0x10
+0057   0087           00126                 MOVWF   PORTC
+0058   2522           00127                 CALL    RET
+                      00128                 
+0059   0BA0           00129                 DECFSZ  CON,1
+005A   284A           00130                 GOTO    FR5
+                      00131 
+005B   301E           00132         MOVLW   0x1E
+005C   00A0           00133         MOVWF   CON
+                      00134 
+005D   30FE           00135 FR6             MOVLW   0xFE
+005E   0085           00136                 MOVWF   PORTA
+005F   301D           00137                 MOVLW   0x1D
+0060   0087           00138                 MOVWF   PORTC
+0061   2522           00139                 CALL    RET
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00140 
+0062   30FD           00141                 MOVLW   0xFD
+0063   0085           00142                 MOVWF   PORTA
+0064   301D           00143                 MOVLW   0x1D
+0065   0087           00144                 MOVWF   PORTC
+0066   2522           00145                 CALL    RET
+                      00146 
+0067   30FB           00147                 MOVLW   0xFB
+0068   0085           00148                 MOVWF   PORTA
+0069   3001           00149                 MOVLW   0x01
+006A   0087           00150                 MOVWF   PORTC
+006B   2522           00151                 CALL    RET
+                      00152 
+006C   30F7           00153                 MOVLW   0xF7
+006D   0085           00154                 MOVWF   PORTA
+006E   3010           00155                 MOVLW   0x10
+006F   0087           00156                 MOVWF   PORTC
+0070   2522           00157                 CALL    RET
+                      00158                 
+0071   0BA0           00159                 DECFSZ  CON,1
+0072   285D           00160                 GOTO    FR6
+                      00161 
+0073   3028           00162         MOVLW   0x28
+0074   00A0           00163         MOVWF   CON
+                      00164 
+0075   30FE           00165 FR7             MOVLW   0xFE
+0076   0085           00166                 MOVWF   PORTA
+0077   303B           00167                 MOVLW   0x3B
+0078   0087           00168                 MOVWF   PORTC
+0079   2522           00169                 CALL    RET
+                      00170 
+007A   30FD           00171                 MOVLW   0xFD
+007B   0085           00172                 MOVWF   PORTA
+007C   303B           00173                 MOVLW   0x3B
+007D   0087           00174                 MOVWF   PORTC
+007E   2522           00175                 CALL    RET
+                      00176 
+007F   30FB           00177                 MOVLW   0xFB
+0080   0085           00178                 MOVWF   PORTA
+0081   3013           00179                 MOVLW   0x13
+0082   0087           00180                 MOVWF   PORTC
+0083   2522           00181                 CALL    RET
+                      00182                 
+0084   0BA0           00183                 DECFSZ  CON,1
+0085   2875           00184                 GOTO    FR7
+                      00185 
+0086   301E           00186         MOVLW   0x1E
+0087   00A0           00187         MOVWF   CON
+                      00188 
+                      00189 
+                      00190                 
+0088   30FE           00191 FR8             MOVLW   0xFE
+0089   0085           00192                 MOVWF   PORTA
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+008A   3077           00193                 MOVLW   0x77
+008B   0087           00194                 MOVWF   PORTC
+008C   2522           00195                 CALL    RET
+                      00196 
+008D   30FD           00197                 MOVLW   0xFD
+008E   0085           00198                 MOVWF   PORTA
+008F   3077           00199                 MOVLW   0x77
+0090   0087           00200                 MOVWF   PORTC
+0091   2522           00201                 CALL    RET
+                      00202 
+0092   30FB           00203                 MOVLW   0xFB
+0093   0085           00204                 MOVWF   PORTA
+0094   3007           00205                 MOVLW   0x07
+0095   0087           00206                 MOVWF   PORTC
+0096   2522           00207                 CALL    RET
+                      00208 
+0097   30F7           00209                 MOVLW   0xF7
+0098   0085           00210                 MOVWF   PORTA
+0099   3010           00211                 MOVLW   0x10
+009A   0087           00212                 MOVWF   PORTC
+009B   2522           00213                 CALL    RET
+                      00214                 
+009C   0BA0           00215                 DECFSZ  CON,1
+009D   2888           00216                 GOTO    FR8
+                      00217 
+009E   301E           00218         MOVLW   0x1E
+009F   00A0           00219         MOVWF   CON
+                      00220 
+00A0   30FE           00221 FR9             MOVLW   0xFE
+00A1   0085           00222                 MOVWF   PORTA
+00A2   30EE           00223                 MOVLW   0xEE
+00A3   0087           00224                 MOVWF   PORTC
+00A4   2522           00225                 CALL    RET
+                      00226 
+00A5   30FD           00227                 MOVLW   0xFD
+00A6   0085           00228                 MOVWF   PORTA
+00A7   30EE           00229                 MOVLW   0xEE
+00A8   0087           00230                 MOVWF   PORTC
+00A9   2522           00231                 CALL    RET
+                      00232 
+00AA   30FB           00233                 MOVLW   0xFB
+00AB   0085           00234                 MOVWF   PORTA
+00AC   300E           00235                 MOVLW   0x0E
+00AD   0087           00236                 MOVWF   PORTC
+00AE   2522           00237                 CALL    RET
+                      00238 
+00AF   30F7           00239                 MOVLW   0xF7
+00B0   0085           00240                 MOVWF   PORTA
+00B1   3000           00241                 MOVLW   0x00
+00B2   0087           00242                 MOVWF   PORTC
+00B3   2522           00243                 CALL    RET
+                      00244 
+00B4   30EF           00245                 MOVLW   0xEF
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00B5   0085           00246                 MOVWF   PORTA
+00B6   3010           00247                 MOVLW   0x10
+00B7   0087           00248                 MOVWF   PORTC
+00B8   2522           00249                 CALL    RET
+                      00250                 
+00B9   0BA0           00251                 DECFSZ  CON,1
+00BA   28A0           00252                 GOTO    FR9
+                      00253 
+00BB   301E           00254         MOVLW   0x1E
+00BC   00A0           00255         MOVWF   CON
+                      00256 
+00BD   30FE           00257 FR10    MOVLW   0xFE
+00BE   0085           00258                 MOVWF   PORTA
+00BF   30DD           00259                 MOVLW   0xDD
+00C0   0087           00260                 MOVWF   PORTC
+00C1   2522           00261                 CALL    RET
+                      00262 
+00C2   30FD           00263                 MOVLW   0xFD
+00C3   0085           00264                 MOVWF   PORTA
+00C4   30DD           00265                 MOVLW   0xDD
+00C5   0087           00266                 MOVWF   PORTC
+00C6   2522           00267                 CALL    RET
+                      00268 
+00C7   30FB           00269                 MOVLW   0xFB
+00C8   0085           00270                 MOVWF   PORTA
+00C9   301D           00271                 MOVLW   0x1D
+00CA   0087           00272                 MOVWF   PORTC
+00CB   2522           00273                 CALL    RET
+                      00274 
+00CC   30F7           00275                 MOVLW   0xF7
+00CD   0085           00276                 MOVWF   PORTA
+00CE   3001           00277                 MOVLW   0x01
+00CF   0087           00278                 MOVWF   PORTC
+00D0   2522           00279                 CALL    RET
+                      00280 
+00D1   30EF           00281                 MOVLW   0xEF
+00D2   0085           00282                 MOVWF   PORTA
+00D3   3010           00283                 MOVLW   0x10
+00D4   0087           00284                 MOVWF   PORTC
+00D5   2522           00285                 CALL    RET
+                      00286                 
+00D6   0BA0           00287                 DECFSZ  CON,1
+00D7   28BD           00288                 GOTO    FR10
+                      00289 
+00D8   301E           00290         MOVLW   0x1E
+00D9   00A0           00291         MOVWF   CON
+                      00292 
+00DA   30FE           00293 FR11    MOVLW   0xFE
+00DB   0085           00294                 MOVWF   PORTA
+00DC   30BB           00295                 MOVLW   0xBB
+00DD   0087           00296                 MOVWF   PORTC
+00DE   2522           00297                 CALL    RET
+                      00298 
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00DF   30FD           00299                 MOVLW   0xFD
+00E0   0085           00300                 MOVWF   PORTA
+00E1   30BB           00301                 MOVLW   0xBB
+00E2   0087           00302                 MOVWF   PORTC
+00E3   2522           00303                 CALL    RET
+                      00304 
+00E4   30FB           00305                 MOVLW   0xFB
+00E5   0085           00306                 MOVWF   PORTA
+00E6   303B           00307                 MOVLW   0x3B
+00E7   0087           00308                 MOVWF   PORTC
+00E8   2522           00309                 CALL    RET
+                      00310 
+00E9   30F7           00311                 MOVLW   0xF7
+00EA   0085           00312                 MOVWF   PORTA
+00EB   3013           00313                 MOVLW   0x13
+00EC   0087           00314                 MOVWF   PORTC
+00ED   2522           00315                 CALL    RET
+                      00316 
+00EE   30EF           00317                 MOVLW   0xEF
+00EF   0085           00318                 MOVWF   PORTA
+00F0   3000           00319                 MOVLW   0x00
+00F1   0087           00320                 MOVWF   PORTC
+00F2   2522           00321                 CALL    RET
+                      00322                 
+00F3   0BA0           00323                 DECFSZ  CON,1
+00F4   28DA           00324                 GOTO    FR11
+                      00325 
+00F5   301E           00326         MOVLW   0x1E
+00F6   00A0           00327         MOVWF   CON
+                      00328 
+00F7   30FE           00329 FR12    MOVLW   0xFE
+00F8   0085           00330                 MOVWF   PORTA
+00F9   3077           00331                 MOVLW   0x77
+00FA   0087           00332                 MOVWF   PORTC
+00FB   2522           00333                 CALL    RET
+                      00334 
+00FC   30FD           00335                 MOVLW   0xFD
+00FD   0085           00336                 MOVWF   PORTA
+00FE   3077           00337                 MOVLW   0x77
+00FF   0087           00338                 MOVWF   PORTC
+0100   2522           00339                 CALL    RET
+                      00340 
+0101   30FB           00341                 MOVLW   0xFB
+0102   0085           00342                 MOVWF   PORTA
+0103   3077           00343                 MOVLW   0x77
+0104   0087           00344                 MOVWF   PORTC
+0105   2522           00345                 CALL    RET
+                      00346 
+0106   30F7           00347                 MOVLW   0xF7
+0107   0085           00348                 MOVWF   PORTA
+0108   3007           00349                 MOVLW   0x07
+0109   0087           00350                 MOVWF   PORTC
+010A   2522           00351                 CALL    RET
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00352 
+010B   30EF           00353                 MOVLW   0xEF
+010C   0085           00354                 MOVWF   PORTA
+010D   3010           00355                 MOVLW   0x10
+010E   0087           00356                 MOVWF   PORTC
+010F   2522           00357                 CALL    RET
+                      00358                 
+0110   0BA0           00359                 DECFSZ  CON,1
+0111   28F7           00360                 GOTO    FR12
+                      00361 
+0112   301E           00362         MOVLW   0x1E
+0113   00A0           00363         MOVWF   CON
+                      00364 
+0114   30FE           00365 FR13    MOVLW   0xFE
+0115   0085           00366                 MOVWF   PORTA
+0116   30EE           00367                 MOVLW   0xEE
+0117   0087           00368                 MOVWF   PORTC
+0118   2522           00369                 CALL    RET
+                      00370 
+0119   30FD           00371                 MOVLW   0xFD
+011A   0085           00372                 MOVWF   PORTA
+011B   30EE           00373                 MOVLW   0xEE
+011C   0087           00374                 MOVWF   PORTC
+011D   2522           00375                 CALL    RET
+                      00376 
+011E   30FB           00377                 MOVLW   0xFB
+011F   0085           00378                 MOVWF   PORTA
+0120   30EE           00379                 MOVLW   0xEE
+0121   0087           00380                 MOVWF   PORTC
+0122   2522           00381                 CALL    RET
+                      00382 
+0123   30F7           00383                 MOVLW   0xF7
+0124   0085           00384                 MOVWF   PORTA
+0125   300E           00385                 MOVLW   0x0E
+0126   0087           00386                 MOVWF   PORTC
+0127   2522           00387                 CALL    RET
+                      00388 
+0128   30EF           00389                 MOVLW   0xEF
+0129   0085           00390                 MOVWF   PORTA
+012A   3000           00391                 MOVLW   0x00
+012B   0087           00392                 MOVWF   PORTC
+012C   2522           00393                 CALL    RET
+                      00394 
+012D   30DF           00395                 MOVLW   0xDF
+012E   0085           00396                 MOVWF   PORTA
+012F   3010           00397                 MOVLW   0x10
+0130   0087           00398                 MOVWF   PORTC
+0131   2522           00399                 CALL    RET
+                      00400                 
+0132   0BA0           00401                 DECFSZ  CON,1
+0133   2914           00402                 GOTO    FR13
+                      00403 
+0134   301E           00404         MOVLW   0x1E
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0135   00A0           00405         MOVWF   CON
+                      00406 
+0136   30FE           00407 FR14    MOVLW   0xFE
+0137   0085           00408                 MOVWF   PORTA
+0138   30DD           00409                 MOVLW   0xDD
+0139   0087           00410                 MOVWF   PORTC
+013A   2522           00411                 CALL    RET
+                      00412 
+013B   30FD           00413                 MOVLW   0xFD
+013C   0085           00414                 MOVWF   PORTA
+013D   30DD           00415                 MOVLW   0xDD
+013E   0087           00416                 MOVWF   PORTC
+013F   2522           00417                 CALL    RET
+                      00418 
+0140   30FB           00419                 MOVLW   0xFB
+0141   0085           00420                 MOVWF   PORTA
+0142   30DC           00421                 MOVLW   0xDC
+0143   0087           00422                 MOVWF   PORTC
+0144   2522           00423                 CALL    RET
+                      00424 
+0145   30F7           00425                 MOVLW   0xF7
+0146   0085           00426                 MOVWF   PORTA
+0147   301C           00427                 MOVLW   0x1C
+0148   0087           00428                 MOVWF   PORTC
+0149   2522           00429                 CALL    RET
+                      00430 
+014A   30EF           00431                 MOVLW   0xEF
+014B   0085           00432                 MOVWF   PORTA
+014C   3000           00433                 MOVLW   0x00
+014D   0087           00434                 MOVWF   PORTC
+014E   2522           00435                 CALL    RET
+                      00436 
+014F   30DF           00437                 MOVLW   0xDF
+0150   0085           00438                 MOVWF   PORTA
+0151   3010           00439                 MOVLW   0x10
+0152   0087           00440                 MOVWF   PORTC
+0153   2522           00441                 CALL    RET
+                      00442                 
+0154   0BA0           00443                 DECFSZ  CON,1
+0155   2936           00444                 GOTO    FR14
+                      00445 
+0156   301E           00446         MOVLW   0x1E
+0157   00A0           00447         MOVWF   CON
+                      00448 
+0158   30FE           00449 FR15    MOVLW   0xFE
+0159   0085           00450                 MOVWF   PORTA
+015A   30BB           00451                 MOVLW   0xBB
+015B   0087           00452                 MOVWF   PORTC
+015C   2522           00453                 CALL    RET
+                      00454 
+015D   30FD           00455                 MOVLW   0xFD
+015E   0085           00456                 MOVWF   PORTA
+015F   30BB           00457                 MOVLW   0xBB
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0160   0087           00458                 MOVWF   PORTC
+0161   2522           00459                 CALL    RET
+                      00460 
+0162   30FB           00461                 MOVLW   0xFB
+0163   0085           00462                 MOVWF   PORTA
+0164   30B8           00463                 MOVLW   0xB8
+0165   0087           00464                 MOVWF   PORTC
+0166   2522           00465                 CALL    RET
+                      00466 
+0167   30F7           00467                 MOVLW   0xF7
+0168   0085           00468                 MOVWF   PORTA
+0169   3038           00469                 MOVLW   0x38
+016A   0087           00470                 MOVWF   PORTC
+016B   2522           00471                 CALL    RET
+                      00472 
+016C   30EF           00473                 MOVLW   0xEF
+016D   0085           00474                 MOVWF   PORTA
+016E   3010           00475                 MOVLW   0x10
+016F   0087           00476                 MOVWF   PORTC
+0170   2522           00477                 CALL    RET
+                      00478 
+0171   30DF           00479                 MOVLW   0xDF
+0172   0085           00480                 MOVWF   PORTA
+0173   3000           00481                 MOVLW   0x00
+0174   0087           00482                 MOVWF   PORTC
+0175   2522           00483                 CALL    RET
+                      00484                 
+0176   0BA0           00485                 DECFSZ  CON,1
+0177   2958           00486                 GOTO    FR15
+                      00487 
+0178   301E           00488         MOVLW   0x1E
+0179   00A0           00489         MOVWF   CON
+                      00490 
+017A   30FE           00491 FR16    MOVLW   0xFE
+017B   0085           00492                 MOVWF   PORTA
+017C   3077           00493                 MOVLW   0x77
+017D   0087           00494                 MOVWF   PORTC
+017E   2522           00495                 CALL    RET
+                      00496 
+017F   30FD           00497                 MOVLW   0xFD
+0180   0085           00498                 MOVWF   PORTA
+0181   3077           00499                 MOVLW   0x77
+0182   0087           00500                 MOVWF   PORTC
+0183   2522           00501                 CALL    RET
+                      00502 
+0184   30FB           00503                 MOVLW   0xFB
+0185   0085           00504                 MOVWF   PORTA
+0186   3070           00505                 MOVLW   0x70
+0187   0087           00506                 MOVWF   PORTC
+0188   2522           00507                 CALL    RET
+                      00508 
+0189   30F7           00509                 MOVLW   0xF7
+018A   0085           00510                 MOVWF   PORTA
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+018B   3070           00511                 MOVLW   0x70
+018C   0087           00512                 MOVWF   PORTC
+018D   2522           00513                 CALL    RET
+                      00514 
+018E   30EF           00515                 MOVLW   0xEF
+018F   0085           00516                 MOVWF   PORTA
+0190   3010           00517                 MOVLW   0x10
+0191   0087           00518                 MOVWF   PORTC
+0192   2522           00519                 CALL    RET
+                      00520 
+0193   30DF           00521                 MOVLW   0xDF
+0194   0085           00522                 MOVWF   PORTA
+0195   3000           00523                 MOVLW   0x00
+0196   0087           00524                 MOVWF   PORTC
+0197   2522           00525                 CALL    RET
+                      00526                 
+0198   0BA0           00527                 DECFSZ  CON,1
+0199   297A           00528                 GOTO    FR16
+                      00529 
+019A   301E           00530         MOVLW   0x1E
+019B   00A0           00531         MOVWF   CON
+                      00532 
+019C   30FE           00533 FR17    MOVLW   0xFE
+019D   0085           00534                 MOVWF   PORTA
+019E   30EE           00535                 MOVLW   0xEE
+019F   0087           00536                 MOVWF   PORTC
+01A0   2522           00537                 CALL    RET
+                      00538 
+01A1   30FD           00539                 MOVLW   0xFD
+01A2   0085           00540                 MOVWF   PORTA
+01A3   30EE           00541                 MOVLW   0xEE
+01A4   0087           00542                 MOVWF   PORTC
+01A5   2522           00543                 CALL    RET
+                      00544 
+01A6   30FB           00545                 MOVLW   0xFB
+01A7   0085           00546                 MOVWF   PORTA
+01A8   30E0           00547                 MOVLW   0xE0
+01A9   0087           00548                 MOVWF   PORTC
+01AA   2522           00549                 CALL    RET
+                      00550 
+01AB   30F7           00551                 MOVLW   0xF7
+01AC   0085           00552                 MOVWF   PORTA
+01AD   30E0           00553                 MOVLW   0xE0
+01AE   0087           00554                 MOVWF   PORTC
+01AF   2522           00555                 CALL    RET
+                      00556 
+01B0   30EF           00557                 MOVLW   0xEF
+01B1   0085           00558                 MOVWF   PORTA
+01B2   3010           00559                 MOVLW   0x10
+01B3   0087           00560                 MOVWF   PORTC
+01B4   2522           00561                 CALL    RET
+                      00562 
+01B5   30DF           00563                 MOVLW   0xDF
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01B6   0085           00564                 MOVWF   PORTA
+01B7   3000           00565                 MOVLW   0x00
+01B8   0087           00566                 MOVWF   PORTC
+01B9   2522           00567                 CALL    RET
+                      00568                 
+01BA   0BA0           00569                 DECFSZ  CON,1
+01BB   299C           00570                 GOTO    FR17
+                      00571 
+01BC   301E           00572         MOVLW   0x1E
+01BD   00A0           00573         MOVWF   CON
+                      00574 
+01BE   30FE           00575 FR18    MOVLW   0xFE
+01BF   0085           00576                 MOVWF   PORTA
+01C0   30DD           00577                 MOVLW   0xDD
+01C1   0087           00578                 MOVWF   PORTC
+01C2   2522           00579                 CALL    RET
+                      00580 
+01C3   30FD           00581                 MOVLW   0xFD
+01C4   0085           00582                 MOVWF   PORTA
+01C5   30DD           00583                 MOVLW   0xDD
+01C6   0087           00584                 MOVWF   PORTC
+01C7   2522           00585                 CALL    RET
+                      00586 
+01C8   30FB           00587                 MOVLW   0xFB
+01C9   0085           00588                 MOVWF   PORTA
+01CA   30C1           00589                 MOVLW   0xC1
+01CB   0087           00590                 MOVWF   PORTC
+01CC   2522           00591                 CALL    RET
+                      00592 
+01CD   30F7           00593                 MOVLW   0xF7
+01CE   0085           00594                 MOVWF   PORTA
+01CF   30D0           00595                 MOVLW   0xD0
+01D0   0087           00596                 MOVWF   PORTC
+01D1   2522           00597                 CALL    RET
+                      00598 
+01D2   30EF           00599                 MOVLW   0xEF
+01D3   0085           00600                 MOVWF   PORTA
+01D4   3000           00601                 MOVLW   0x00
+01D5   0087           00602                 MOVWF   PORTC
+01D6   2522           00603                 CALL    RET
+                      00604 
+01D7   30DF           00605                 MOVLW   0xDF
+01D8   0085           00606                 MOVWF   PORTA
+01D9   3000           00607                 MOVLW   0x00
+01DA   0087           00608                 MOVWF   PORTC
+01DB   2522           00609                 CALL    RET
+                      00610                 
+01DC   0BA0           00611                 DECFSZ  CON,1
+01DD   29BE           00612                 GOTO    FR18
+                      00613 
+01DE   301E           00614         MOVLW   0x1E
+01DF   00A0           00615         MOVWF   CON
+                      00616 
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 13
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01E0   30FE           00617 FR19    MOVLW   0xFE
+01E1   0085           00618                 MOVWF   PORTA
+01E2   30BB           00619                 MOVLW   0xBB
+01E3   0087           00620                 MOVWF   PORTC
+01E4   2522           00621                 CALL    RET
+                      00622 
+01E5   30FD           00623                 MOVLW   0xFD
+01E6   0085           00624                 MOVWF   PORTA
+01E7   30BB           00625                 MOVLW   0xBB
+01E8   0087           00626                 MOVWF   PORTC
+01E9   2522           00627                 CALL    RET
+                      00628 
+01EA   30FB           00629                 MOVLW   0xFB
+01EB   0085           00630                 MOVWF   PORTA
+01EC   3093           00631                 MOVLW   0x93
+01ED   0087           00632                 MOVWF   PORTC
+01EE   2522           00633                 CALL    RET
+                      00634 
+01EF   30F7           00635                 MOVLW   0xF7
+01F0   0085           00636                 MOVWF   PORTA
+01F1   3080           00637                 MOVLW   0x80
+01F2   0087           00638                 MOVWF   PORTC
+01F3   2522           00639                 CALL    RET
+                      00640 
+01F4   30EF           00641                 MOVLW   0xEF
+01F5   0085           00642                 MOVWF   PORTA
+01F6   3000           00643                 MOVLW   0x00
+01F7   0087           00644                 MOVWF   PORTC
+01F8   2522           00645                 CALL    RET
+                      00646 
+01F9   30DF           00647                 MOVLW   0xDF
+01FA   0085           00648                 MOVWF   PORTA
+01FB   3000           00649                 MOVLW   0x00
+01FC   0087           00650                 MOVWF   PORTC
+01FD   2522           00651                 CALL    RET
+                      00652                 
+01FE   0BA0           00653                 DECFSZ  CON,1
+01FF   29E0           00654                 GOTO    FR19
+                      00655 
+0200   301E           00656         MOVLW   0x1E
+0201   00A0           00657         MOVWF   CON
+                      00658 
+0202   30FE           00659 FR20    MOVLW   0xFE
+0203   0085           00660                 MOVWF   PORTA
+0204   3077           00661                 MOVLW   0x77
+0205   0087           00662                 MOVWF   PORTC
+0206   2522           00663                 CALL    RET
+                      00664 
+0207   30FD           00665                 MOVLW   0xFD
+0208   0085           00666                 MOVWF   PORTA
+0209   3077           00667                 MOVLW   0x77
+020A   0087           00668                 MOVWF   PORTC
+020B   2522           00669                 CALL    RET
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 14
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00670 
+020C   30FB           00671                 MOVLW   0xFB
+020D   0085           00672                 MOVWF   PORTA
+020E   3007           00673                 MOVLW   0x07
+020F   0087           00674                 MOVWF   PORTC
+0210   2522           00675                 CALL    RET
+                      00676 
+0211   30F7           00677                 MOVLW   0xF7
+0212   0085           00678                 MOVWF   PORTA
+0213   3010           00679                 MOVLW   0x10
+0214   0087           00680                 MOVWF   PORTC
+0215   2522           00681                 CALL    RET
+                      00682 
+0216   30EF           00683                 MOVLW   0xEF
+0217   0085           00684                 MOVWF   PORTA
+0218   3000           00685                 MOVLW   0x00
+0219   0087           00686                 MOVWF   PORTC
+021A   2522           00687                 CALL    RET
+                      00688 
+021B   30DF           00689                 MOVLW   0xDF
+021C   0085           00690                 MOVWF   PORTA
+021D   3000           00691                 MOVLW   0x00
+021E   0087           00692                 MOVWF   PORTC
+021F   2522           00693                 CALL    RET
+                      00694                 
+0220   0BA0           00695                 DECFSZ  CON,1
+0221   2A02           00696                 GOTO    FR20
+                      00697 
+0222   301E           00698         MOVLW   0x1E
+0223   00A0           00699         MOVWF   CON
+                      00700 
+0224   30FE           00701 FR21    MOVLW   0xFE
+0225   0085           00702                 MOVWF   PORTA
+0226   30EE           00703                 MOVLW   0xEE
+0227   0087           00704                 MOVWF   PORTC
+0228   2522           00705                 CALL    RET
+                      00706 
+0229   30FD           00707                 MOVLW   0xFD
+022A   0085           00708                 MOVWF   PORTA
+022B   30EE           00709                 MOVLW   0xEE
+022C   0087           00710                 MOVWF   PORTC
+022D   2522           00711                 CALL    RET
+                      00712 
+022E   30FB           00713                 MOVLW   0xFB
+022F   0085           00714                 MOVWF   PORTA
+0230   300E           00715                 MOVLW   0x0E
+0231   0087           00716                 MOVWF   PORTC
+0232   2522           00717                 CALL    RET
+                      00718 
+0233   30F7           00719                 MOVLW   0xF7
+0234   0085           00720                 MOVWF   PORTA
+0235   3000           00721                 MOVLW   0x00
+0236   0087           00722                 MOVWF   PORTC
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 15
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0237   2522           00723                 CALL    RET
+                      00724 
+0238   30EF           00725                 MOVLW   0xEF
+0239   0085           00726                 MOVWF   PORTA
+023A   3010           00727                 MOVLW   0x10
+023B   0087           00728                 MOVWF   PORTC
+023C   2522           00729                 CALL    RET
+                      00730 
+023D   30DF           00731                 MOVLW   0xDF
+023E   0085           00732                 MOVWF   PORTA
+023F   3000           00733                 MOVLW   0x00
+0240   0087           00734                 MOVWF   PORTC
+0241   2522           00735                 CALL    RET
+                      00736                 
+0242   0BA0           00737                 DECFSZ  CON,1
+0243   2A24           00738                 GOTO    FR21
+                      00739 
+0244   301E           00740         MOVLW   0x1E
+0245   00A0           00741         MOVWF   CON
+                      00742 
+0246   30FE           00743 FR22    MOVLW   0xFE
+0247   0085           00744                 MOVWF   PORTA
+0248   30DC           00745                 MOVLW   0xDC
+0249   0087           00746                 MOVWF   PORTC
+024A   2522           00747                 CALL    RET
+                      00748 
+024B   30FD           00749                 MOVLW   0xFD
+024C   0085           00750                 MOVWF   PORTA
+024D   30DC           00751                 MOVLW   0xDC
+024E   0087           00752                 MOVWF   PORTC
+024F   2522           00753                 CALL    RET
+                      00754 
+0250   30FB           00755                 MOVLW   0xFB
+0251   0085           00756                 MOVWF   PORTA
+0252   301C           00757                 MOVLW   0x1C
+0253   0087           00758                 MOVWF   PORTC
+0254   2522           00759                 CALL    RET
+                      00760 
+0255   30F7           00761                 MOVLW   0xF7
+0256   0085           00762                 MOVWF   PORTA
+0257   3001           00763                 MOVLW   0x01
+0258   0087           00764                 MOVWF   PORTC
+0259   2522           00765                 CALL    RET
+                      00766 
+025A   30EF           00767                 MOVLW   0xEF
+025B   0085           00768                 MOVWF   PORTA
+025C   3011           00769                 MOVLW   0x11
+025D   0087           00770                 MOVWF   PORTC
+025E   2522           00771                 CALL    RET
+                      00772 
+025F   30DF           00773                 MOVLW   0xDF
+0260   0085           00774                 MOVWF   PORTA
+0261   3001           00775                 MOVLW   0x01
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 16
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0262   0087           00776                 MOVWF   PORTC
+0263   2522           00777                 CALL    RET
+                      00778                 
+0264   0BA0           00779                 DECFSZ  CON,1
+0265   2A46           00780                 GOTO    FR22
+                      00781 
+0266   301E           00782         MOVLW   0x1E
+0267   00A0           00783         MOVWF   CON
+                      00784 
+0268   30FE           00785 FR23    MOVLW   0xFE
+0269   0085           00786                 MOVWF   PORTA
+026A   30B8           00787                 MOVLW   0xB8
+026B   0087           00788                 MOVWF   PORTC
+026C   2522           00789                 CALL    RET
+                      00790 
+026D   30FD           00791                 MOVLW   0xFD
+026E   0085           00792                 MOVWF   PORTA
+026F   30B8           00793                 MOVLW   0xB8
+0270   0087           00794                 MOVWF   PORTC
+0271   2522           00795                 CALL    RET
+                      00796 
+0272   30FB           00797                 MOVLW   0xFB
+0273   0085           00798                 MOVWF   PORTA
+0274   3038           00799                 MOVLW   0x38
+0275   0087           00800                 MOVWF   PORTC
+0276   2522           00801                 CALL    RET
+                      00802 
+0277   30F7           00803                 MOVLW   0xF7
+0278   0085           00804                 MOVWF   PORTA
+0279   3012           00805                 MOVLW   0x12
+027A   0087           00806                 MOVWF   PORTC
+027B   2522           00807                 CALL    RET
+                      00808 
+027C   30EF           00809                 MOVLW   0xEF
+027D   0085           00810                 MOVWF   PORTA
+027E   3002           00811                 MOVLW   0x02
+027F   0087           00812                 MOVWF   PORTC
+0280   2522           00813                 CALL    RET
+                      00814 
+0281   30DF           00815                 MOVLW   0xDF
+0282   0085           00816                 MOVWF   PORTA
+0283   3002           00817                 MOVLW   0x02
+0284   0087           00818                 MOVWF   PORTC
+0285   2522           00819                 CALL    RET
+                      00820                 
+0286   0BA0           00821                 DECFSZ  CON,1
+0287   2A68           00822                 GOTO    FR23
+                      00823 
+0288   301E           00824         MOVLW   0x1E
+0289   00A0           00825         MOVWF   CON
+                      00826 
+028A   30FE           00827 FR24    MOVLW   0xFE
+028B   0085           00828                 MOVWF   PORTA
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 17
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+028C   3070           00829                 MOVLW   0x70
+028D   0087           00830                 MOVWF   PORTC
+028E   2522           00831                 CALL    RET
+                      00832 
+028F   30FD           00833                 MOVLW   0xFD
+0290   0085           00834                 MOVWF   PORTA
+0291   3071           00835                 MOVLW   0x71
+0292   0087           00836                 MOVWF   PORTC
+0293   2522           00837                 CALL    RET
+                      00838 
+0294   30FB           00839                 MOVLW   0xFB
+0295   0085           00840                 MOVWF   PORTA
+0296   3070           00841                 MOVLW   0x70
+0297   0087           00842                 MOVWF   PORTC
+0298   2522           00843                 CALL    RET
+                      00844 
+0299   30F7           00845                 MOVLW   0xF7
+029A   0085           00846                 MOVWF   PORTA
+029B   3004           00847                 MOVLW   0x04
+029C   0087           00848                 MOVWF   PORTC
+029D   2522           00849                 CALL    RET
+                      00850 
+029E   30EF           00851                 MOVLW   0xEF
+029F   0085           00852                 MOVWF   PORTA
+02A0   3014           00853                 MOVLW   0x14
+02A1   0087           00854                 MOVWF   PORTC
+02A2   2522           00855                 CALL    RET
+                      00856 
+02A3   30DF           00857                 MOVLW   0xDF
+02A4   0085           00858                 MOVWF   PORTA
+02A5   3004           00859                 MOVLW   0x04
+02A6   0087           00860                 MOVWF   PORTC
+02A7   2522           00861                 CALL    RET
+                      00862 
+02A8   30BF           00863                 MOVLW   0xBF
+02A9   0085           00864                 MOVWF   PORTA
+02AA   3001           00865                 MOVLW   0x01
+02AB   0087           00866                 MOVWF   PORTC
+02AC   2522           00867                 CALL    RET
+                      00868                 
+02AD   0BA0           00869                 DECFSZ  CON,1
+02AE   2A8A           00870                 GOTO    FR24
+                      00871 
+02AF   301E           00872         MOVLW   0x1E
+02B0   00A0           00873         MOVWF   CON
+                      00874 
+02B1   30FE           00875 FR25    MOVLW   0xFE
+02B2   0085           00876                 MOVWF   PORTA
+02B3   30E0           00877                 MOVLW   0xE0
+02B4   0087           00878                 MOVWF   PORTC
+02B5   2522           00879                 CALL    RET
+                      00880 
+02B6   30FD           00881                 MOVLW   0xFD
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 18
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+02B7   0085           00882                 MOVWF   PORTA
+02B8   30E2           00883                 MOVLW   0xE2
+02B9   0087           00884                 MOVWF   PORTC
+02BA   2522           00885                 CALL    RET
+                      00886 
+02BB   30FB           00887                 MOVLW   0xFB
+02BC   0085           00888                 MOVWF   PORTA
+02BD   30E0           00889                 MOVLW   0xE0
+02BE   0087           00890                 MOVWF   PORTC
+02BF   2522           00891                 CALL    RET
+                      00892 
+02C0   30F7           00893                 MOVLW   0xF7
+02C1   0085           00894                 MOVWF   PORTA
+02C2   3008           00895                 MOVLW   0x08
+02C3   0087           00896                 MOVWF   PORTC
+02C4   2522           00897                 CALL    RET
+                      00898 
+02C5   30EF           00899                 MOVLW   0xEF
+02C6   0085           00900                 MOVWF   PORTA
+02C7   3018           00901                 MOVLW   0x18
+02C8   0087           00902                 MOVWF   PORTC
+02C9   2522           00903                 CALL    RET
+                      00904 
+02CA   30DF           00905                 MOVLW   0xDF
+02CB   0085           00906                 MOVWF   PORTA
+02CC   3008           00907                 MOVLW   0x08
+02CD   0087           00908                 MOVWF   PORTC
+02CE   2522           00909                 CALL    RET
+                      00910 
+02CF   30BF           00911                 MOVLW   0xBF
+02D0   0085           00912                 MOVWF   PORTA
+02D1   3002           00913                 MOVLW   0x02
+02D2   0087           00914                 MOVWF   PORTC
+02D3   2522           00915                 CALL    RET
+                      00916                 
+02D4   0BA0           00917                 DECFSZ  CON,1
+02D5   2AB1           00918                 GOTO    FR25
+                      00919 
+02D6   301E           00920         MOVLW   0x1E
+02D7   00A0           00921         MOVWF   CON
+                      00922 
+02D8   30FE           00923 FR26    MOVLW   0xFE
+02D9   0085           00924                 MOVWF   PORTA
+02DA   30C0           00925                 MOVLW   0xC0
+02DB   0087           00926                 MOVWF   PORTC
+02DC   2522           00927                 CALL    RET
+                      00928 
+02DD   30FD           00929                 MOVLW   0xFD
+02DE   0085           00930                 MOVWF   PORTA
+02DF   30C4           00931                 MOVLW   0xC4
+02E0   0087           00932                 MOVWF   PORTC
+02E1   2522           00933                 CALL    RET
+                      00934 
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 19
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+02E2   30FB           00935                 MOVLW   0xFB
+02E3   0085           00936                 MOVWF   PORTA
+02E4   30C0           00937                 MOVLW   0xC0
+02E5   0087           00938                 MOVWF   PORTC
+02E6   2522           00939                 CALL    RET
+                      00940 
+02E7   30F7           00941                 MOVLW   0xF7
+02E8   0085           00942                 MOVWF   PORTA
+02E9   3010           00943                 MOVLW   0x10
+02EA   0087           00944                 MOVWF   PORTC
+02EB   2522           00945                 CALL    RET
+                      00946 
+02EC   30EF           00947                 MOVLW   0xEF
+02ED   0085           00948                 MOVWF   PORTA
+02EE   3018           00949                 MOVLW   0x18
+02EF   0087           00950                 MOVWF   PORTC
+02F0   2522           00951                 CALL    RET
+                      00952 
+02F1   30DF           00953                 MOVLW   0xDF
+02F2   0085           00954                 MOVWF   PORTA
+02F3   3010           00955                 MOVLW   0x10
+02F4   0087           00956                 MOVWF   PORTC
+02F5   2522           00957                 CALL    RET
+                      00958 
+02F6   30BF           00959                 MOVLW   0xBF
+02F7   0085           00960                 MOVWF   PORTA
+02F8   3004           00961                 MOVLW   0x04
+02F9   0087           00962                 MOVWF   PORTC
+02FA   2522           00963                 CALL    RET
+                      00964                 
+02FB   0BA0           00965                 DECFSZ  CON,1
+02FC   2AD8           00966                 GOTO    FR26
+                      00967 
+02FD   301E           00968         MOVLW   0x1E
+02FE   00A0           00969         MOVWF   CON
+                      00970 
+02FF   30FE           00971 FR27    MOVLW   0xFE
+0300   0085           00972                 MOVWF   PORTA
+0301   3080           00973                 MOVLW   0x80
+0302   0087           00974                 MOVWF   PORTC
+0303   2522           00975                 CALL    RET
+                      00976 
+0304   30FD           00977                 MOVLW   0xFD
+0305   0085           00978                 MOVWF   PORTA
+0306   3088           00979                 MOVLW   0x88
+0307   0087           00980                 MOVWF   PORTC
+0308   2522           00981                 CALL    RET
+                      00982 
+0309   30FB           00983                 MOVLW   0xFB
+030A   0085           00984                 MOVWF   PORTA
+030B   3080           00985                 MOVLW   0x80
+030C   0087           00986                 MOVWF   PORTC
+030D   2522           00987                 CALL    RET
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 20
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00988 
+030E   30F7           00989                 MOVLW   0xF7
+030F   0085           00990                 MOVWF   PORTA
+0310   3020           00991                 MOVLW   0x20
+0311   0087           00992                 MOVWF   PORTC
+0312   2522           00993                 CALL    RET
+                      00994 
+0313   30EF           00995                 MOVLW   0xEF
+0314   0085           00996                 MOVWF   PORTA
+0315   3038           00997                 MOVLW   0x38
+0316   0087           00998                 MOVWF   PORTC
+0317   2522           00999                 CALL    RET
+                      01000 
+0318   30DF           01001                 MOVLW   0xDF
+0319   0085           01002                 MOVWF   PORTA
+031A   3020           01003                 MOVLW   0x20
+031B   0087           01004                 MOVWF   PORTC
+031C   2522           01005                 CALL    RET
+                      01006 
+031D   30BF           01007                 MOVLW   0xBF
+031E   0085           01008                 MOVWF   PORTA
+031F   3008           01009                 MOVLW   0x08
+0320   0087           01010                 MOVWF   PORTC
+0321   2522           01011                 CALL    RET
+                      01012                 
+0322   0BA0           01013                 DECFSZ  CON,1
+0323   2AFF           01014                 GOTO    FR27
+                      01015 
+0324   301E           01016         MOVLW   0x1E
+0325   00A0           01017         MOVWF   CON
+                      01018 
+0326   30FE           01019 FR28    MOVLW   0xFE
+0327   0085           01020                 MOVWF   PORTA
+0328   3001           01021                 MOVLW   0x01
+0329   0087           01022                 MOVWF   PORTC
+032A   2522           01023                 CALL    RET
+                      01024 
+032B   30FD           01025                 MOVLW   0xFD
+032C   0085           01026                 MOVWF   PORTA
+032D   3010           01027                 MOVLW   0x10
+032E   0087           01028                 MOVWF   PORTC
+032F   2522           01029                 CALL    RET
+                      01030 
+0330   30FB           01031                 MOVLW   0xFB
+0331   0085           01032                 MOVWF   PORTA
+0332   3000           01033                 MOVLW   0x00
+0333   0087           01034                 MOVWF   PORTC
+0334   2522           01035                 CALL    RET
+                      01036 
+0335   30F7           01037                 MOVLW   0xF7
+0336   0085           01038                 MOVWF   PORTA
+0337   3040           01039                 MOVLW   0x40
+0338   0087           01040                 MOVWF   PORTC
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 21
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0339   2522           01041                 CALL    RET
+                      01042 
+033A   30EF           01043                 MOVLW   0xEF
+033B   0085           01044                 MOVWF   PORTA
+033C   3059           01045                 MOVLW   0x59
+033D   0087           01046                 MOVWF   PORTC
+033E   2522           01047                 CALL    RET
+                      01048 
+033F   30DF           01049                 MOVLW   0xDF
+0340   0085           01050                 MOVWF   PORTA
+0341   3040           01051                 MOVLW   0x40
+0342   0087           01052                 MOVWF   PORTC
+0343   2522           01053                 CALL    RET
+                      01054 
+0344   30BF           01055                 MOVLW   0xBF
+0345   0085           01056                 MOVWF   PORTA
+0346   3010           01057                 MOVLW   0x10
+0347   0087           01058                 MOVWF   PORTC
+0348   2522           01059                 CALL    RET
+                      01060                 
+0349   0BA0           01061                 DECFSZ  CON,1
+034A   2B26           01062                 GOTO    FR28
+                      01063 
+034B   301E           01064         MOVLW   0x1E
+034C   00A0           01065         MOVWF   CON
+                      01066 
+034D   30FE           01067 FR29    MOVLW   0xFE
+034E   0085           01068                 MOVWF   PORTA
+034F   3002           01069                 MOVLW   0x02
+0350   0087           01070                 MOVWF   PORTC
+0351   2522           01071                 CALL    RET
+                      01072 
+0352   30FD           01073                 MOVLW   0xFD
+0353   0085           01074                 MOVWF   PORTA
+0354   3020           01075                 MOVLW   0x20
+0355   0087           01076                 MOVWF   PORTC
+0356   2522           01077                 CALL    RET
+                      01078 
+0357   30FB           01079                 MOVLW   0xFB
+0358   0085           01080                 MOVWF   PORTA
+0359   3000           01081                 MOVLW   0x00
+035A   0087           01082                 MOVWF   PORTC
+035B   2522           01083                 CALL    RET
+                      01084 
+035C   30F7           01085                 MOVLW   0xF7
+035D   0085           01086                 MOVWF   PORTA
+035E   3088           01087                 MOVLW   0x88
+035F   0087           01088                 MOVWF   PORTC
+0360   2522           01089                 CALL    RET
+                      01090 
+0361   30EF           01091                 MOVLW   0xEF
+0362   0085           01092                 MOVWF   PORTA
+0363   3092           01093                 MOVLW   0x92
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 22
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0364   0087           01094                 MOVWF   PORTC
+0365   2522           01095                 CALL    RET
+                      01096 
+0366   30DF           01097                 MOVLW   0xDF
+0367   0085           01098                 MOVWF   PORTA
+0368   3080           01099                 MOVLW   0x80
+0369   0087           01100                 MOVWF   PORTC
+036A   2522           01101                 CALL    RET
+                      01102 
+036B   30BF           01103                 MOVLW   0xBF
+036C   0085           01104                 MOVWF   PORTA
+036D   3020           01105                 MOVLW   0x20
+036E   0087           01106                 MOVWF   PORTC
+036F   2522           01107                 CALL    RET
+                      01108                 
+0370   0BA0           01109                 DECFSZ  CON,1
+0371   2B4D           01110                 GOTO    FR29
+                      01111 
+0372   301E           01112         MOVLW   0x1E
+0373   00A0           01113         MOVWF   CON
+                      01114 
+0374   30FE           01115 FR30    MOVLW   0xFE
+0375   0085           01116                 MOVWF   PORTA
+0376   3004           01117                 MOVLW   0x04
+0377   0087           01118                 MOVWF   PORTC
+0378   2522           01119                 CALL    RET
+                      01120 
+0379   30FD           01121                 MOVLW   0xFD
+037A   0085           01122                 MOVWF   PORTA
+037B   3040           01123                 MOVLW   0x40
+037C   0087           01124                 MOVWF   PORTC
+037D   2522           01125                 CALL    RET
+                      01126 
+037E   30FB           01127                 MOVLW   0xFB
+037F   0085           01128                 MOVWF   PORTA
+0380   3000           01129                 MOVLW   0x00
+0381   0087           01130                 MOVWF   PORTC
+0382   2522           01131                 CALL    RET
+                      01132 
+0383   30F7           01133                 MOVLW   0xF7
+0384   0085           01134                 MOVWF   PORTA
+0385   3018           01135                 MOVLW   0x18
+0386   0087           01136                 MOVWF   PORTC
+0387   2522           01137                 CALL    RET
+                      01138 
+0388   30EF           01139                 MOVLW   0xEF
+0389   0085           01140                 MOVWF   PORTA
+038A   3004           01141                 MOVLW   0x04
+038B   0087           01142                 MOVWF   PORTC
+038C   2522           01143                 CALL    RET
+                      01144 
+038D   30DF           01145                 MOVLW   0xDF
+038E   0085           01146                 MOVWF   PORTA
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 23
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+038F   3000           01147                 MOVLW   0x00
+0390   0087           01148                 MOVWF   PORTC
+0391   2522           01149                 CALL    RET
+                      01150 
+0392   30BF           01151                 MOVLW   0xBF
+0393   0085           01152                 MOVWF   PORTA
+0394   3040           01153                 MOVLW   0x40
+0395   0087           01154                 MOVWF   PORTC
+0396   2522           01155                 CALL    RET
+                      01156                 
+0397   0BA0           01157                 DECFSZ  CON,1
+0398   2B74           01158                 GOTO    FR30
+                      01159 
+0399   301E           01160         MOVLW   0x1E
+039A   00A0           01161         MOVWF   CON
+                      01162 
+039B   30FE           01163 FR31    MOVLW   0xFE
+039C   0085           01164                 MOVWF   PORTA
+039D   3008           01165                 MOVLW   0x08
+039E   0087           01166                 MOVWF   PORTC
+039F   2522           01167                 CALL    RET
+                      01168 
+03A0   30FD           01169                 MOVLW   0xFD
+03A1   0085           01170                 MOVWF   PORTA
+03A2   3080           01171                 MOVLW   0x80
+03A3   0087           01172                 MOVWF   PORTC
+03A4   2522           01173                 CALL    RET
+                      01174 
+03A5   30FB           01175                 MOVLW   0xFB
+03A6   0085           01176                 MOVWF   PORTA
+03A7   3008           01177                 MOVLW   0x08
+03A8   0087           01178                 MOVWF   PORTC
+03A9   2522           01179                 CALL    RET
+                      01180 
+03AA   30F7           01181                 MOVLW   0xF7
+03AB   0085           01182                 MOVWF   PORTA
+03AC   3010           01183                 MOVLW   0x10
+03AD   0087           01184                 MOVWF   PORTC
+03AE   2522           01185                 CALL    RET
+                      01186 
+03AF   30EF           01187                 MOVLW   0xEF
+03B0   0085           01188                 MOVWF   PORTA
+03B1   3008           01189                 MOVLW   0x08
+03B2   0087           01190                 MOVWF   PORTC
+03B3   2522           01191                 CALL    RET
+                      01192 
+03B4   30DF           01193                 MOVLW   0xDF
+03B5   0085           01194                 MOVWF   PORTA
+03B6   3000           01195                 MOVLW   0x00
+03B7   0087           01196                 MOVWF   PORTC
+03B8   2522           01197                 CALL    RET
+                      01198 
+03B9   30BF           01199                 MOVLW   0xBF
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 24
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+03BA   0085           01200                 MOVWF   PORTA
+03BB   3080           01201                 MOVLW   0x80
+03BC   0087           01202                 MOVWF   PORTC
+03BD   2522           01203                 CALL    RET
+                      01204                 
+03BE   0BA0           01205                 DECFSZ  CON,1
+03BF   2B9B           01206                 GOTO    FR31
+                      01207 
+03C0   301E           01208         MOVLW   0x1E
+03C1   00A0           01209         MOVWF   CON
+                      01210 
+03C2   30FE           01211 FR32    MOVLW   0xFE
+03C3   0085           01212                 MOVWF   PORTA
+03C4   3010           01213                 MOVLW   0x10
+03C5   0087           01214                 MOVWF   PORTC
+03C6   2522           01215                 CALL    RET
+                      01216 
+03C7   30FD           01217                 MOVLW   0xFD
+03C8   0085           01218                 MOVWF   PORTA
+03C9   3000           01219                 MOVLW   0x00
+03CA   0087           01220                 MOVWF   PORTC
+03CB   2522           01221                 CALL    RET
+                      01222 
+03CC   30FB           01223                 MOVLW   0xFB
+03CD   0085           01224                 MOVWF   PORTA
+03CE   3018           01225                 MOVLW   0x18
+03CF   0087           01226                 MOVWF   PORTC
+03D0   2522           01227                 CALL    RET
+                      01228 
+03D1   30F7           01229                 MOVLW   0xF7
+03D2   0085           01230                 MOVWF   PORTA
+03D3   3000           01231                 MOVLW   0x00
+03D4   0087           01232                 MOVWF   PORTC
+03D5   2522           01233                 CALL    RET
+                      01234 
+03D6   30EF           01235                 MOVLW   0xEF
+03D7   0085           01236                 MOVWF   PORTA
+03D8   3010           01237                 MOVLW   0x10
+03D9   0087           01238                 MOVWF   PORTC
+03DA   2522           01239                 CALL    RET
+                      01240 
+03DB   30DF           01241                 MOVLW   0xDF
+03DC   0085           01242                 MOVWF   PORTA
+03DD   3000           01243                 MOVLW   0x00
+03DE   0087           01244                 MOVWF   PORTC
+03DF   2522           01245                 CALL    RET
+                      01246 
+03E0   30BF           01247                 MOVLW   0xBF
+03E1   0085           01248                 MOVWF   PORTA
+03E2   3000           01249                 MOVLW   0x00
+03E3   0087           01250                 MOVWF   PORTC
+03E4   2522           01251                 CALL    RET
+                      01252                 
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 25
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+03E5   0BA0           01253                 DECFSZ  CON,1
+03E6   2BC2           01254                 GOTO    FR32
+                      01255 
+03E7   301E           01256         MOVLW   0x1E
+03E8   00A0           01257         MOVWF   CON
+                      01258 
+03E9   30FE           01259 FR33    MOVLW   0xFE
+03EA   0085           01260                 MOVWF   PORTA
+03EB   3020           01261                 MOVLW   0x20
+03EC   0087           01262                 MOVWF   PORTC
+03ED   2522           01263                 CALL    RET
+                      01264 
+03EE   30FD           01265                 MOVLW   0xFD
+03EF   0085           01266                 MOVWF   PORTA
+03F0   3001           01267                 MOVLW   0x01
+03F1   0087           01268                 MOVWF   PORTC
+03F2   2522           01269                 CALL    RET
+                      01270 
+03F3   30FB           01271                 MOVLW   0xFB
+03F4   0085           01272                 MOVWF   PORTA
+03F5   3019           01273                 MOVLW   0x19
+03F6   0087           01274                 MOVWF   PORTC
+03F7   2522           01275                 CALL    RET
+                      01276 
+03F8   30F7           01277                 MOVLW   0xF7
+03F9   0085           01278                 MOVWF   PORTA
+03FA   3001           01279                 MOVLW   0x01
+03FB   0087           01280                 MOVWF   PORTC
+03FC   2522           01281                 CALL    RET
+                      01282 
+03FD   30EF           01283                 MOVLW   0xEF
+03FE   0085           01284                 MOVWF   PORTA
+03FF   3020           01285                 MOVLW   0x20
+0400   0087           01286                 MOVWF   PORTC
+0401   2522           01287                 CALL    RET
+                      01288 
+0402   30DF           01289                 MOVLW   0xDF
+0403   0085           01290                 MOVWF   PORTA
+0404   3000           01291                 MOVLW   0x00
+0405   0087           01292                 MOVWF   PORTC
+0406   2522           01293                 CALL    RET
+                      01294 
+0407   30BF           01295                 MOVLW   0xBF
+0408   0085           01296                 MOVWF   PORTA
+0409   3000           01297                 MOVLW   0x00
+040A   0087           01298                 MOVWF   PORTC
+040B   2522           01299                 CALL    RET
+                      01300                 
+040C   0BA0           01301                 DECFSZ  CON,1
+040D   2BE9           01302                 GOTO    FR33
+                      01303 
+040E   301E           01304         MOVLW   0x1E
+040F   00A0           01305         MOVWF   CON
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 26
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      01306 
+0410   30FE           01307 FR34    MOVLW   0xFE
+0411   0085           01308                 MOVWF   PORTA
+0412   3040           01309                 MOVLW   0x40
+0413   0087           01310                 MOVWF   PORTC
+0414   2522           01311                 CALL    RET
+                      01312 
+0415   30FD           01313                 MOVLW   0xFD
+0416   0085           01314                 MOVWF   PORTA
+0417   3002           01315                 MOVLW   0x02
+0418   0087           01316                 MOVWF   PORTC
+0419   2522           01317                 CALL    RET
+                      01318 
+041A   30FB           01319                 MOVLW   0xFB
+041B   0085           01320                 MOVWF   PORTA
+041C   301A           01321                 MOVLW   0x1A
+041D   0087           01322                 MOVWF   PORTC
+041E   2522           01323                 CALL    RET
+                      01324 
+041F   30F7           01325                 MOVLW   0xF7
+0420   0085           01326                 MOVWF   PORTA
+0421   3002           01327                 MOVLW   0x02
+0422   0087           01328                 MOVWF   PORTC
+0423   2522           01329                 CALL    RET
+                      01330 
+0424   30EF           01331                 MOVLW   0xEF
+0425   0085           01332                 MOVWF   PORTA
+0426   3040           01333                 MOVLW   0x40
+0427   0087           01334                 MOVWF   PORTC
+0428   2522           01335                 CALL    RET
+                      01336 
+0429   30DF           01337                 MOVLW   0xDF
+042A   0085           01338                 MOVWF   PORTA
+042B   3000           01339                 MOVLW   0x00
+042C   0087           01340                 MOVWF   PORTC
+042D   2522           01341                 CALL    RET
+                      01342 
+042E   30BF           01343                 MOVLW   0xBF
+042F   0085           01344                 MOVWF   PORTA
+0430   3000           01345                 MOVLW   0x00
+0431   0087           01346                 MOVWF   PORTC
+0432   2522           01347                 CALL    RET
+                      01348                 
+0433   0BA0           01349                 DECFSZ  CON,1
+0434   2C10           01350                 GOTO    FR34
+                      01351 
+0435   301E           01352         MOVLW   0x1E
+0436   00A0           01353         MOVWF   CON
+                      01354 
+0437   30FE           01355 FR35    MOVLW   0xFE
+0438   0085           01356                 MOVWF   PORTA
+0439   3080           01357                 MOVLW   0x80
+043A   0087           01358                 MOVWF   PORTC
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 27
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+043B   2522           01359                 CALL    RET
+                      01360 
+043C   30FD           01361                 MOVLW   0xFD
+043D   0085           01362                 MOVWF   PORTA
+043E   3004           01363                 MOVLW   0x04
+043F   0087           01364                 MOVWF   PORTC
+0440   2522           01365                 CALL    RET
+                      01366 
+0441   30FB           01367                 MOVLW   0xFB
+0442   0085           01368                 MOVWF   PORTA
+0443   301C           01369                 MOVLW   0x1C
+0444   0087           01370                 MOVWF   PORTC
+0445   2522           01371                 CALL    RET
+                      01372 
+0446   30F7           01373                 MOVLW   0xF7
+0447   0085           01374                 MOVWF   PORTA
+0448   3004           01375                 MOVLW   0x04
+0449   0087           01376                 MOVWF   PORTC
+044A   2522           01377                 CALL    RET
+                      01378 
+044B   30EF           01379                 MOVLW   0xEF
+044C   0085           01380                 MOVWF   PORTA
+044D   3080           01381                 MOVLW   0x80
+044E   0087           01382                 MOVWF   PORTC
+044F   2522           01383                 CALL    RET
+                      01384 
+0450   30DF           01385                 MOVLW   0xDF
+0451   0085           01386                 MOVWF   PORTA
+0452   3000           01387                 MOVLW   0x00
+0453   0087           01388                 MOVWF   PORTC
+0454   2522           01389                 CALL    RET
+                      01390 
+0455   30BF           01391                 MOVLW   0xBF
+0456   0085           01392                 MOVWF   PORTA
+0457   3000           01393                 MOVLW   0x00
+0458   0087           01394                 MOVWF   PORTC
+0459   2522           01395                 CALL    RET
+                      01396                 
+045A   0BA0           01397                 DECFSZ  CON,1
+045B   2C37           01398                 GOTO    FR35
+                      01399 
+045C   301E           01400         MOVLW   0x1E
+045D   00A0           01401         MOVWF   CON
+                      01402 
+045E   30FE           01403 FR36    MOVLW   0xFE
+045F   0085           01404                 MOVWF   PORTA
+0460   3000           01405                 MOVLW   0x00
+0461   0087           01406                 MOVWF   PORTC
+0462   2522           01407                 CALL    RET
+                      01408 
+0463   30FD           01409                 MOVLW   0xFD
+0464   0085           01410                 MOVWF   PORTA
+0465   3008           01411                 MOVLW   0x08
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 28
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0466   0087           01412                 MOVWF   PORTC
+0467   2522           01413                 CALL    RET
+                      01414 
+0468   30FB           01415                 MOVLW   0xFB
+0469   0085           01416                 MOVWF   PORTA
+046A   3018           01417                 MOVLW   0x18
+046B   0087           01418                 MOVWF   PORTC
+046C   2522           01419                 CALL    RET
+                      01420 
+046D   30F7           01421                 MOVLW   0xF7
+046E   0085           01422                 MOVWF   PORTA
+046F   3008           01423                 MOVLW   0x08
+0470   0087           01424                 MOVWF   PORTC
+0471   2522           01425                 CALL    RET
+                      01426 
+0472   30EF           01427                 MOVLW   0xEF
+0473   0085           01428                 MOVWF   PORTA
+0474   3000           01429                 MOVLW   0x00
+0475   0087           01430                 MOVWF   PORTC
+0476   2522           01431                 CALL    RET
+                      01432 
+0477   30DF           01433                 MOVLW   0xDF
+0478   0085           01434                 MOVWF   PORTA
+0479   3000           01435                 MOVLW   0x00
+047A   0087           01436                 MOVWF   PORTC
+047B   2522           01437                 CALL    RET
+                      01438 
+047C   30BF           01439                 MOVLW   0xBF
+047D   0085           01440                 MOVWF   PORTA
+047E   3000           01441                 MOVLW   0x00
+047F   0087           01442                 MOVWF   PORTC
+0480   2522           01443                 CALL    RET
+                      01444                 
+0481   0BA0           01445                 DECFSZ  CON,1
+0482   2C5E           01446                 GOTO    FR36
+                      01447 
+0483   301E           01448         MOVLW   0x1E
+0484   00A0           01449         MOVWF   CON
+                      01450 
+0485   30FE           01451 FR37    MOVLW   0xFE
+0486   0085           01452                 MOVWF   PORTA
+0487   3000           01453                 MOVLW   0x00
+0488   0087           01454                 MOVWF   PORTC
+0489   2522           01455                 CALL    RET
+                      01456 
+048A   30FD           01457                 MOVLW   0xFD
+048B   0085           01458                 MOVWF   PORTA
+048C   3010           01459                 MOVLW   0x10
+048D   0087           01460                 MOVWF   PORTC
+048E   2522           01461                 CALL    RET
+                      01462 
+048F   30FB           01463                 MOVLW   0xFB
+0490   0085           01464                 MOVWF   PORTA
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 29
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0491   3010           01465                 MOVLW   0x10
+0492   0087           01466                 MOVWF   PORTC
+0493   2522           01467                 CALL    RET
+                      01468 
+0494   30F7           01469                 MOVLW   0xF7
+0495   0085           01470                 MOVWF   PORTA
+0496   3010           01471                 MOVLW   0x10
+0497   0087           01472                 MOVWF   PORTC
+0498   2522           01473                 CALL    RET
+                      01474 
+0499   30EF           01475                 MOVLW   0xEF
+049A   0085           01476                 MOVWF   PORTA
+049B   3000           01477                 MOVLW   0x00
+049C   0087           01478                 MOVWF   PORTC
+049D   2522           01479                 CALL    RET
+                      01480 
+049E   30DF           01481                 MOVLW   0xDF
+049F   0085           01482                 MOVWF   PORTA
+04A0   3000           01483                 MOVLW   0x00
+04A1   0087           01484                 MOVWF   PORTC
+04A2   2522           01485                 CALL    RET
+                      01486 
+04A3   30BF           01487                 MOVLW   0xBF
+04A4   0085           01488                 MOVWF   PORTA
+04A5   3000           01489                 MOVLW   0x00
+04A6   0087           01490                 MOVWF   PORTC
+04A7   2522           01491                 CALL    RET
+                      01492                 
+04A8   0BA0           01493                 DECFSZ  CON,1
+04A9   2C85           01494                 GOTO    FR37
+                      01495 
+04AA   301E           01496         MOVLW   0x1E
+04AB   00A0           01497         MOVWF   CON
+                      01498 
+04AC   30FE           01499 FR38    MOVLW   0xFE
+04AD   0085           01500                 MOVWF   PORTA
+04AE   3000           01501                 MOVLW   0x00
+04AF   0087           01502                 MOVWF   PORTC
+04B0   2522           01503                 CALL    RET
+                      01504 
+04B1   30FD           01505                 MOVLW   0xFD
+04B2   0085           01506                 MOVWF   PORTA
+04B3   3020           01507                 MOVLW   0x20
+04B4   0087           01508                 MOVWF   PORTC
+04B5   2522           01509                 CALL    RET
+                      01510 
+04B6   30FB           01511                 MOVLW   0xFB
+04B7   0085           01512                 MOVWF   PORTA
+04B8   3030           01513                 MOVLW   0x30
+04B9   0087           01514                 MOVWF   PORTC
+04BA   2522           01515                 CALL    RET
+                      01516 
+04BB   30F7           01517                 MOVLW   0xF7
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 30
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+04BC   0085           01518                 MOVWF   PORTA
+04BD   3020           01519                 MOVLW   0x20
+04BE   0087           01520                 MOVWF   PORTC
+04BF   2522           01521                 CALL    RET
+                      01522 
+04C0   30EF           01523                 MOVLW   0xEF
+04C1   0085           01524                 MOVWF   PORTA
+04C2   3000           01525                 MOVLW   0x00
+04C3   0087           01526                 MOVWF   PORTC
+04C4   2522           01527                 CALL    RET
+                      01528 
+04C5   30DF           01529                 MOVLW   0xDF
+04C6   0085           01530                 MOVWF   PORTA
+04C7   3000           01531                 MOVLW   0x00
+04C8   0087           01532                 MOVWF   PORTC
+04C9   2522           01533                 CALL    RET
+                      01534 
+04CA   30BF           01535                 MOVLW   0xBF
+04CB   0085           01536                 MOVWF   PORTA
+04CC   3000           01537                 MOVLW   0x00
+04CD   0087           01538                 MOVWF   PORTC
+04CE   2522           01539                 CALL    RET
+                      01540                 
+04CF   0BA0           01541                 DECFSZ  CON,1
+04D0   2CAC           01542                 GOTO    FR38
+                      01543 
+04D1   301E           01544         MOVLW   0x1E
+04D2   00A0           01545         MOVWF   CON
+                      01546 
+04D3   30FE           01547 FR39    MOVLW   0xFE
+04D4   0085           01548                 MOVWF   PORTA
+04D5   3000           01549                 MOVLW   0x00
+04D6   0087           01550                 MOVWF   PORTC
+04D7   2522           01551                 CALL    RET
+                      01552 
+04D8   30FD           01553                 MOVLW   0xFD
+04D9   0085           01554                 MOVWF   PORTA
+04DA   3050           01555                 MOVLW   0x50
+04DB   0087           01556                 MOVWF   PORTC
+04DC   2522           01557                 CALL    RET
+                      01558 
+04DD   30FB           01559                 MOVLW   0xFB
+04DE   0085           01560                 MOVWF   PORTA
+04DF   3040           01561                 MOVLW   0x40
+04E0   0087           01562                 MOVWF   PORTC
+04E1   2522           01563                 CALL    RET
+                      01564 
+04E2   30F7           01565                 MOVLW   0xF7
+04E3   0085           01566                 MOVWF   PORTA
+04E4   3040           01567                 MOVLW   0x40
+04E5   0087           01568                 MOVWF   PORTC
+04E6   2522           01569                 CALL    RET
+                      01570 
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 31
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+04E7   30EF           01571                 MOVLW   0xEF
+04E8   0085           01572                 MOVWF   PORTA
+04E9   3000           01573                 MOVLW   0x00
+04EA   0087           01574                 MOVWF   PORTC
+04EB   2522           01575                 CALL    RET
+                      01576 
+04EC   30DF           01577                 MOVLW   0xDF
+04ED   0085           01578                 MOVWF   PORTA
+04EE   3000           01579                 MOVLW   0x00
+04EF   0087           01580                 MOVWF   PORTC
+04F0   2522           01581                 CALL    RET
+                      01582 
+04F1   30BF           01583                 MOVLW   0xBF
+04F2   0085           01584                 MOVWF   PORTA
+04F3   3000           01585                 MOVLW   0x00
+04F4   0087           01586                 MOVWF   PORTC
+04F5   2522           01587                 CALL    RET
+                      01588                 
+04F6   0BA0           01589                 DECFSZ  CON,1
+04F7   2CD3           01590                 GOTO    FR39
+                      01591 
+04F8   301E           01592         MOVLW   0x1E
+04F9   00A0           01593         MOVWF   CON
+                      01594 
+04FA   30FE           01595 FR40    MOVLW   0xFE
+04FB   0085           01596                 MOVWF   PORTA
+04FC   3010           01597                 MOVLW   0x10
+04FD   0087           01598                 MOVWF   PORTC
+04FE   2522           01599                 CALL    RET
+                      01600 
+04FF   30FD           01601                 MOVLW   0xFD
+0500   0085           01602                 MOVWF   PORTA
+0501   3080           01603                 MOVLW   0x80
+0502   0087           01604                 MOVWF   PORTC
+0503   2522           01605                 CALL    RET
+                      01606 
+0504   30FB           01607                 MOVLW   0xFB
+0505   0085           01608                 MOVWF   PORTA
+0506   3080           01609                 MOVLW   0x80
+0507   0087           01610                 MOVWF   PORTC
+0508   2522           01611                 CALL    RET
+                      01612 
+0509   30F7           01613                 MOVLW   0xF7
+050A   0085           01614                 MOVWF   PORTA
+050B   3080           01615                 MOVLW   0x80
+050C   0087           01616                 MOVWF   PORTC
+050D   2522           01617                 CALL    RET
+                      01618 
+050E   30EF           01619                 MOVLW   0xEF
+050F   0085           01620                 MOVWF   PORTA
+0510   3000           01621                 MOVLW   0x00
+0511   0087           01622                 MOVWF   PORTC
+0512   2522           01623                 CALL    RET
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 32
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      01624 
+0513   30DF           01625                 MOVLW   0xDF
+0514   0085           01626                 MOVWF   PORTA
+0515   3000           01627                 MOVLW   0x00
+0516   0087           01628                 MOVWF   PORTC
+0517   2522           01629                 CALL    RET
+                      01630 
+0518   30BF           01631                 MOVLW   0xBF
+0519   0085           01632                 MOVWF   PORTA
+051A   3000           01633                 MOVLW   0x00
+051B   0087           01634                 MOVWF   PORTC
+051C   2522           01635                 CALL    RET
+                      01636                 
+051D   0BA0           01637                 DECFSZ  CON,1
+051E   2CFA           01638                 GOTO    FR40
+                      01639 
+051F   301E           01640         MOVLW   0x1E
+0520   00A0           01641         MOVWF   CON
+                      01642 
+Warning[203]: Found opcode in column 1. (GOTO)
+0521   280F           01643 GOTO    INI
+                      01644 
+0522   309F           01645 RET             MOVLW   0x9F
+0523   0081           01646                 MOVWF   TMR0
+0524   1D0B           01647 ET0IFX  BTFSS   INTCON,T0IF
+0525   2D24           01648                 GOTO    ET0IFX
+0526   110B           01649                 BCF             INTCON,T0IF
+0527   0008           01650                 RETURN
+                      01651 
+                      01652                 END
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 33
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ABDEN                             00000000
+ABDOVF                            00000007
+ACKDT                             00000005
+ACKEN                             00000004
+ACKSTAT                           00000006
+ADCON0                            0000001F
+ADCON1                            0000009F
+ADCS0                             00000006
+ADCS1                             00000007
+ADDEN                             00000003
+ADFM                              00000007
+ADIE                              00000006
+ADIF                              00000006
+ADON                              00000000
+ADRESH                            0000001E
+ADRESL                            0000009E
+ANS0                              00000000
+ANS1                              00000001
+ANS10                             00000002
+ANS11                             00000003
+ANS12                             00000004
+ANS13                             00000005
+ANS2                              00000002
+ANS3                              00000003
+ANS4                              00000004
+ANS5                              00000005
+ANS6                              00000006
+ANS7                              00000007
+ANS8                              00000000
+ANS9                              00000001
+ANSEL                             00000188
+ANSELH                            00000189
+BAUDCTL                           00000187
+BCLIE                             00000003
+BCLIF                             00000003
+BF                                00000000
+BRG0                              00000000
+BRG1                              00000001
+BRG10                             00000002
+BRG11                             00000003
+BRG12                             00000004
+BRG13                             00000005
+BRG14                             00000006
+BRG15                             00000007
+BRG16                             00000003
+BRG2                              00000002
+BRG3                              00000003
+BRG4                              00000004
+BRG5                              00000005
+BRG6                              00000006
+BRG7                              00000007
+BRG8                              00000000
+BRG9                              00000001
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 34
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BRGH                              00000002
+C                                 00000000
+C1CH0                             00000000
+C1CH1                             00000001
+C1IE                              00000005
+C1IF                              00000005
+C1OE                              00000005
+C1ON                              00000007
+C1OUT                             00000006
+C1POL                             00000004
+C1R                               00000002
+C1RSEL                            00000005
+C1SEN                             00000005
+C2CH0                             00000000
+C2CH1                             00000001
+C2IE                              00000006
+C2IF                              00000006
+C2OE                              00000005
+C2ON                              00000007
+C2OUT                             00000006
+C2POL                             00000004
+C2R                               00000002
+C2REN                             00000004
+C2RSEL                            00000004
+C2SYNC                            00000000
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCP2CON                           0000001D
+CCP2IE                            00000000
+CCP2IF                            00000000
+CCP2M0                            00000000
+CCP2M1                            00000001
+CCP2M2                            00000002
+CCP2M3                            00000003
+CCP2X                             00000005
+CCP2Y                             00000004
+CCPR1                             00000015
+CCPR1H                            00000016
+CCPR1L                            00000015
+CCPR2                             0000001B
+CCPR2H                            0000001C
+CCPR2L                            0000001B
+CHS0                              00000002
+CHS1                              00000003
+CHS2                              00000004
+CHS3                              00000005
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 35
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CKE                               00000006
+CKP                               00000004
+CM1CON0                           00000107
+CM2CON0                           00000108
+CM2CON1                           00000109
+CON                               00000020
+CREN                              00000004
+CSRC                              00000007
+D                                 00000005
+DATA_ADDRESS                      00000005
+DC                                00000001
+DC1B0                             00000004
+DC1B1                             00000005
+DC2B0                             00000004
+DC2B1                             00000005
+D_A                               00000005
+D_NOT_A                           00000005
+ECCPAS                            0000009C
+ECCPAS0                           00000004
+ECCPAS1                           00000005
+ECCPAS2                           00000006
+ECCPASE                           00000007
+EEADR                             0000010D
+EEADRH                            0000010F
+EECON1                            0000018C
+EECON2                            0000018D
+EEDAT                             0000010C
+EEDATA                            0000010C
+EEDATH                            0000010E
+EEIE                              00000004
+EEIF                              00000004
+EEPGD                             00000007
+ET0IFX                            00000524
+F                                 00000001
+FERR                              00000002
+FR1                               00000012
+FR10                              000000BD
+FR11                              000000DA
+FR12                              000000F7
+FR13                              00000114
+FR14                              00000136
+FR15                              00000158
+FR16                              0000017A
+FR17                              0000019C
+FR18                              000001BE
+FR19                              000001E0
+FR2                               0000001B
+FR20                              00000202
+FR21                              00000224
+FR22                              00000246
+FR23                              00000268
+FR24                              0000028A
+FR25                              000002B1
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 36
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+FR26                              000002D8
+FR27                              000002FF
+FR28                              00000326
+FR29                              0000034D
+FR3                               00000029
+FR30                              00000374
+FR31                              0000039B
+FR32                              000003C2
+FR33                              000003E9
+FR34                              00000410
+FR35                              00000437
+FR36                              0000045E
+FR37                              00000485
+FR38                              000004AC
+FR39                              000004D3
+FR4                               00000037
+FR40                              000004FA
+FR5                               0000004A
+FR6                               0000005D
+FR7                               00000075
+FR8                               00000088
+FR9                               000000A0
+FSR                               00000004
+FVREN                             00000000
+GCEN                              00000007
+GIE                               00000007
+GO                                00000001
+GO_DONE                           00000001
+GO_NOT_DONE                       00000001
+HTS                               00000002
+I2C_DATA                          00000005
+I2C_READ                          00000002
+I2C_START                         00000003
+I2C_STOP                          00000004
+INDF                              00000000
+INI                               0000000F
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IOCB                              00000096
+IOCB0                             00000000
+IOCB1                             00000001
+IOCB2                             00000002
+IOCB3                             00000003
+IOCB4                             00000004
+IOCB5                             00000005
+IOCB6                             00000006
+IOCB7                             00000007
+IRCF0                             00000004
+IRCF1                             00000005
+IRCF2                             00000006
+IRP                               00000007
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 37
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+LTS                               00000001
+MC1OUT                            00000007
+MC2OUT                            00000006
+MSK                               00000093
+MSK0                              00000000
+MSK1                              00000001
+MSK2                              00000002
+MSK3                              00000003
+MSK4                              00000004
+MSK5                              00000005
+MSK6                              00000006
+MSK7                              00000007
+NOT_A                             00000005
+NOT_ADDRESS                       00000005
+NOT_BO                            00000000
+NOT_BOR                           00000000
+NOT_DONE                          00000001
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_RC8                           00000006
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_TX8                           00000006
+NOT_W                             00000002
+NOT_WRITE                         00000002
+OERR                              00000001
+OPTION_REG                        00000081
+OSCCON                            0000008F
+OSCTUNE                           00000090
+OSFIE                             00000007
+OSFIF                             00000007
+OSTS                              00000003
+P                                 00000004
+P1M0                              00000006
+P1M1                              00000007
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PDC0                              00000000
+PDC1                              00000001
+PDC2                              00000002
+PDC3                              00000003
+PDC4                              00000004
+PDC5                              00000005
+PDC6                              00000006
+PEIE                              00000006
+PEN                               00000002
+PIE1                              0000008C
+PIE2                              0000008D
+PIR1                              0000000C
+PIR2                              0000000D
+PORTA                             00000005
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 38
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PORTB                             00000006
+PORTC                             00000007
+PORTD                             00000008
+PORTE                             00000009
+PR2                               00000092
+PRSEN                             00000007
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PSSAC0                            00000002
+PSSAC1                            00000003
+PSSBD0                            00000000
+PSSBD1                            00000001
+PSTRCON                           0000009D
+PULSR                             00000002
+PULSS                             00000003
+PWM1CON                           0000009B
+R                                 00000002
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RA6                               00000006
+RA7                               00000007
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RC0                               00000000
+RC1                               00000001
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+RC5                               00000005
+RC6                               00000006
+RC7                               00000007
+RC8_9                             00000006
+RC9                               00000006
+RCD8                              00000000
+RCEN                              00000003
+RCIDL                             00000006
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 39
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RCSTA                             00000018
+RD                                00000000
+RD0                               00000000
+RD1                               00000001
+RD2                               00000002
+RD3                               00000003
+RD4                               00000004
+RD5                               00000005
+RD6                               00000006
+RD7                               00000007
+RE0                               00000000
+RE1                               00000001
+RE2                               00000002
+RE3                               00000003
+READ_WRITE                        00000002
+RET                               00000522
+RP0                               00000005
+RP1                               00000006
+RSEN                              00000001
+RX9                               00000006
+RX9D                              00000000
+R_NOT_W                           00000002
+R_W                               00000002
+S                                 00000003
+SBOREN                            00000004
+SCKP                              00000004
+SCS                               00000000
+SEN                               00000000
+SENDB                             00000003
+SMP                               00000007
+SPBRG                             00000099
+SPBRGH                            0000009A
+SPEN                              00000007
+SR0                               00000006
+SR1                               00000007
+SRCON                             00000185
+SREN                              00000005
+SSPADD                            00000093
+SSPBUF                            00000013
+SSPCON                            00000014
+SSPCON2                           00000091
+SSPEN                             00000005
+SSPIE                             00000003
+SSPIF                             00000003
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+SSPM3                             00000003
+SSPMSK                            00000093
+SSPOV                             00000006
+SSPSTAT                           00000094
+STATUS                            00000003
+STRA                              00000000
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 40
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+STRB                              00000001
+STRC                              00000002
+STRD                              00000003
+STRSYNC                           00000004
+SWDTEN                            00000000
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1GINV                            00000007
+T1GIV                             00000007
+T1GSS                             00000001
+T1INSYNC                          00000002
+T1OSCEN                           00000003
+T1SYNC                            00000002
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR1                              0000000E
+TMR1CS                            00000001
+TMR1GE                            00000006
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISA6                            00000006
+TRISA7                            00000007
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 41
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRISC                             00000087
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+TRISC6                            00000006
+TRISC7                            00000007
+TRISD                             00000088
+TRISD0                            00000000
+TRISD1                            00000001
+TRISD2                            00000002
+TRISD3                            00000003
+TRISD4                            00000004
+TRISD5                            00000005
+TRISD6                            00000006
+TRISD7                            00000007
+TRISE                             00000089
+TRISE0                            00000000
+TRISE1                            00000001
+TRISE2                            00000002
+TRISE3                            00000003
+TRMT                              00000001
+TUN0                              00000000
+TUN1                              00000001
+TUN2                              00000002
+TUN3                              00000003
+TUN4                              00000004
+TX8_9                             00000006
+TX9                               00000006
+TX9D                              00000000
+TXD8                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+UA                                00000001
+ULPWUE                            00000005
+ULPWUIE                           00000002
+ULPWUIF                           00000002
+VCFG0                             00000004
+VCFG1                             00000005
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 42
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+VR3                               00000003
+VRCON                             00000097
+VREN                              00000007
+VROE                              00000006
+VRR                               00000005
+VRSS                              00000004
+W                                 00000000
+WCOL                              00000007
+WDTCON                            00000105
+WDTPS0                            00000001
+WDTPS1                            00000002
+WDTPS2                            00000003
+WDTPS3                            00000004
+WPUB                              00000095
+WPUB0                             00000000
+WPUB1                             00000001
+WPUB2                             00000002
+WPUB3                             00000003
+WPUB4                             00000004
+WPUB5                             00000005
+WPUB6                             00000006
+WPUB7                             00000007
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+WUE                               00000001
+Z                                 00000002
+_BOR21V                           00003EFF
+_BOR40V                           00003FFF
+_BOR4V_BOR21V                     00003EFF
+_BOR4V_BOR40V                     00003FFF
+_BOREN_NSLEEP                     00003EFF
+_BOREN_OFF                        00003CFF
+_BOREN_ON                         00003FFF
+_BOREN_SBODEN                     00003DFF
+_BOR_NSLEEP                       00003EFF
+_BOR_OFF                          00003CFF
+_BOR_ON                           00003FFF
+_BOR_SBODEN                       00003DFF
+_CONFIG1                          00002007
+_CONFIG2                          00002008
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003F7F
+_CP_OFF                           00003FFF
+_CP_ON                            00003FBF
+_DEBUG_OFF                        00003FFF
+_DEBUG_ON                         00001FFF
+_DEVID1                           00002006
+_EC_OSC                           00003FFB
+_EXTRC                            00003FFF
+_EXTRCIO                          00003FFE
+_EXTRC_OSC_CLKOUT                 00003FFF
+_EXTRC_OSC_NOCLKOUT               00003FFE
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 43
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_FCMEN_OFF                        000037FF
+_FCMEN_ON                         00003FFF
+_FOSC_EC                          00003FFB
+_FOSC_EXTRC_CLKOUT                00003FFF
+_FOSC_EXTRC_NOCLKOUT              00003FFE
+_FOSC_HS                          00003FFA
+_FOSC_INTRC_CLKOUT                00003FFD
+_FOSC_INTRC_NOCLKOUT              00003FFC
+_FOSC_LP                          00003FF8
+_FOSC_XT                          00003FF9
+_HS_OSC                           00003FFA
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_IESO_OFF                         00003BFF
+_IESO_ON                          00003FFF
+_INTOSC                           00003FFD
+_INTOSCIO                         00003FFC
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FF8
+_LVP_OFF                          00002FFF
+_LVP_ON                           00003FFF
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FEF
+_WDTE_OFF                         00003FF7
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FF7
+_WDT_ON                           00003FFF
+_WRT_1FOURTH                      00003BFF
+_WRT_256                          00003DFF
+_WRT_HALF                         000039FF
+_WRT_OFF                          00003FFF
+_XT_OSC                           00003FF9
+__16F887                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0080 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+00C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+MPASM  5.51                          88D1.ASM   3-21-2022  2:43:36         PAGE 44
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+
+0100 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0140 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0180 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+01C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0200 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0240 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0280 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+02C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0300 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0340 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0380 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+03C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0400 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0440 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0480 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+04C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0500 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXX-------- ----------------
+2000 : -------XX------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:  1320
+Program Memory Words Free:  6872
+
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     8 reported,     0 suppressed
+
+

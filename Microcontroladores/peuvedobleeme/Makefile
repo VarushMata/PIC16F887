@@ -1,0 +1,19 @@
+# MPLAB IDE generated this makefile for use with GNU make.
+# Project: PWM_1.mcp
+# Date: Tue Oct 25 23:20:48 2022
+
+AS = MPASMWIN.exe
+CC = 
+LD = mplink.exe
+AR = mplib.exe
+RM = rm
+
+PWM_1.cof : pwm1.o
+	$(CC) /p16F887 "pwm1.o" /u_DEBUG /z__MPLAB_BUILD=1 /z__MPLAB_DEBUG=1 /o"PWM_1.cof" /M"PWM_1.map" /W
+
+pwm1.o : ../P1/pwm1.asm ../../../../../Program\ Files\ (x86)/Microchip/MPASM\ Suite/P16F887.INC
+	$(AS) /q /p16F887 "C:\Users\Varush\Documents\Microcontroladores\P1\pwm1.asm" /l"pwm1.lst" /e"pwm1.err" /o"pwm1.o" /d__DEBUG=1
+
+clean : 
+	$(CC) "pwm1.o" "pwm1.err" "pwm1.lst" "PWM_1.cof" "PWM_1.hex"
+

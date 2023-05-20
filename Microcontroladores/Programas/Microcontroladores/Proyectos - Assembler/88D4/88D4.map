@@ -1,0 +1,101 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Tue Mar 22 14:00:39 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000b18
+      .config_2007_88D4.O       code   0x002007    program   0x000002
+      .config_2008_88D4.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00058b      
+                            0x002007    0x002008      
+            1422 out of 8455 program addresses used, program memory utilization is 16%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   ET0IFX   0x000588    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR1   0x000012    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR10   0x0001a7    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR11   0x0001d4    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR12   0x000201    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR13   0x00022e    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR14   0x00025b    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR15   0x000288    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR16   0x0002b5    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR17   0x0002e2    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR18   0x00030f    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR19   0x00033c    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR2   0x00003f    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR20   0x000369    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR21   0x000396    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR22   0x0003c3    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR23   0x0003f0    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR24   0x00041d    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR25   0x00044a    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR26   0x000477    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR27   0x0004a4    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR28   0x0004d1    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR29   0x0004fe    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR3   0x00006c    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR30   0x00052b    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR31   0x000558    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR4   0x000099    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR5   0x0000c6    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR6   0x0000f3    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR7   0x000120    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR8   0x00014d    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR9   0x00017a    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      INI   0x00000f    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      RET   0x000586    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      INI   0x00000f    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR1   0x000012    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR2   0x00003f    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR3   0x00006c    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR4   0x000099    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR5   0x0000c6    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR6   0x0000f3    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR7   0x000120    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR8   0x00014d    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      FR9   0x00017a    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR10   0x0001a7    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR11   0x0001d4    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR12   0x000201    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR13   0x00022e    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR14   0x00025b    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR15   0x000288    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR16   0x0002b5    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR17   0x0002e2    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR18   0x00030f    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR19   0x00033c    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR20   0x000369    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR21   0x000396    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR22   0x0003c3    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR23   0x0003f0    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR24   0x00041d    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR25   0x00044a    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR26   0x000477    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR27   0x0004a4    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR28   0x0004d1    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR29   0x0004fe    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR30   0x00052b    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                     FR31   0x000558    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                      RET   0x000586    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+                   ET0IFX   0x000588    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D4\88D4.asm
+
+

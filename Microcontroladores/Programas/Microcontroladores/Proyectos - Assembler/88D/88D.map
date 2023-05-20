@@ -1,0 +1,49 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Mon Mar 21 17:27:50 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000108
+       .config_2007_88D.O       code   0x002007    program   0x000002
+       .config_2008_88D.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000083      
+                            0x002007    0x002008      
+            134 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      C_P   0x00002c    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      DOT   0x000079    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                    E_T0X   0x000080    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      RDX   0x000028    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      RET   0x00007e    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      RIX   0x000024    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      RNX   0x00002a    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      TM8   0x000074    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      RIX   0x000024    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      RDX   0x000028    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      RNX   0x00002a    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      C_P   0x00002c    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      TM8   0x000074    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      DOT   0x000079    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                      RET   0x00007e    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+                    E_T0X   0x000080    program     static C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\88D\88D.asm
+
+

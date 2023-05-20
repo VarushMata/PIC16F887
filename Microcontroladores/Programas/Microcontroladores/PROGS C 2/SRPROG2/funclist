@@ -1,0 +1,20 @@
+_lcd_puts: CODE, 1308 0 29
+_putch: CODE, 1142 0 5
+_main: CODE, 1801 0 246
+_atoi: CODE, 1173 0 90
+_lcd_clear: CODE, 1440 0 9
+___lwdiv: CODE, 1701 0 42
+_lcd_goto: CODE, 1302 0 6
+_isdigit: CODE, 1263 0 14
+_sprintf: CODE, 1472 0 16
+_pause: CODE, 1391 0 17
+_getch: CODE, 1138 0 4
+_printf: CODE, 1460 0 12
+___lwmod: CODE, 1743 0 36
+_lcd_write: CODE, 1408 0 19
+_init_comms: CODE, 1159 0 14
+__doprnt: CODE, 1488 0 213
+___wmul: CODE, 1277 0 25
+_msecbase: CODE, 1427 0 13
+_lcd_init: CODE, 1337 0 54
+Total: 864

@@ -1,0 +1,8 @@
+Warning[215] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 1 : Processor superseded by command line.  Verify processor symbol.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 17 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 18 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 22 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 24 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 25 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 26 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CALCULADORA.ASM 27 : Register in operand not in bank 0.  Ensure that bank bits are correct.

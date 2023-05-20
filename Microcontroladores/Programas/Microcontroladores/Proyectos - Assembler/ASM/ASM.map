@@ -1,0 +1,59 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Sat Mar 05 21:37:05 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x0000bc
+       .config_2007_ASM.O       code   0x002007    program   0x000002
+       .config_2008_ASM.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00005d      
+                            0x002007    0x002008      
+            96 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    C_MUL   0x000042    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                      C_P   0x00000f    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     C_VA   0x000056    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     C_VB   0x000054    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     C_VC   0x000052    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     E_MD   0x000026    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                      M_R   0x00004d    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     NB_M   0x00003e    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                      RET   0x000050    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_DIV   0x000047    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_MUL   0x000035    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_RES   0x00001e    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_SUM   0x000022    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      C_P   0x00000f    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_RES   0x00001e    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_SUM   0x000022    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     E_MD   0x000026    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_MUL   0x000035    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     NB_M   0x00003e    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    C_MUL   0x000042    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                    X_DIV   0x000047    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                      M_R   0x00004d    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                      RET   0x000050    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     C_VC   0x000052    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     C_VB   0x000054    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+                     C_VA   0x000056    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM\ASM.asm
+
+

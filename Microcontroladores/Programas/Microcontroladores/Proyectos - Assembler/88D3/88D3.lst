@@ -1,0 +1,1062 @@
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (PROCESSOR)
+Warning[215]: Processor superseded by command line.  Verify processor symbol.
+                      00001 PROCESSOR       P16F887
+                      00002                 INCLUDE         <P16F887.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F887 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00809         LIST
+                      00003 
+2007   20D4           00004                 __CONFIG _CONFIG1, (_INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF &
+                             _CPD_OFF & _BOR_OFF & _IESO_OFF & _FCMEN_OFF & _LVP_OFF & _DEBUG_OFF)
+2008   3FFF           00005                 __CONFIG _CONFIG2, (_WRT_OFF & _BOR40V)
+                      00006 
+0000                  00007                 ORG     0x00    
+                      00008 
+  00000020            00009 CON             EQU     0x20
+                      00010 
+0000   1683 1703      00011         BANKSEL ANSEL           ;CAMBIO BANCO 3
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0188           00012                 CLRF    ANSEL
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   0189           00013                 CLRF    ANSELH
+                      00014         
+0004   1683 1303      00015                 BANKSEL TRISA           ;CAMBIO BANCO 1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0006   0185           00016                 CLRF    TRISA   
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0007   0186           00017                 CLRF    TRISB
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0008   0187           00018                 CLRF    TRISC
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0188           00019                 CLRF    TRISD
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+000A   0189           00020                 CLRF    TRISE
+                      00021 
+000B   30D3           00022                 MOVLW   0xD3            ;VELOCIDAD ANIMACION
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+000C   0081           00023                 MOVWF   OPTION_REG
+                      00024                 
+                      00025 ;               CLRF    ADRESH          ;LIMPIAR ADRESH Y ADRESL
+                      00026 ;       CLRF    ADRESL
+                      00027 
+                      00028 ;       MOVLW   0xD5            ;ADC1 PARA COORDENADAS PORTA
+                      00029 ;       MOVWF   ADCON0
+                      00030     
+                      00031 ;       MOVLW   0xD5            ;ADC2 PARA COORDENADAS PORTC
+                      00032 ;       MOVWF   ADCON1
+                      00033 
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000D   1283 1303      00034                 BANKSEL PORTA           ;CAMBIO BANCO 0 
+                      00035 
+000F   303C           00036 C_P             MOVLW   0x3C            ;PRIMER INICIO DE NO. CICLOS PARA VISUALIZAR UN FRAME DE LA IMAG
+                            EN
+0010   00A0           00037                 MOVWF   CON
+0011   2812           00038                 GOTO    FR1                     ;SALTA A LA PRIMER FUNCION DE FRAME PARA INICIAR
+                      00039 ;**********************************
+0012                  00040 FR1                                                     ;FUNCION DEL FRAME NO. DE LA IMAGEN
+0012   303C           00041                 MOVLW   0x3C            ;RA0
+0013   0085           00042                 MOVWF   PORTA
+0014   3001           00043                 MOVLW   0x01
+0015   0087           00044                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C0
+0016   2119           00045                 CALL    RET
+                      00046 
+0017   307E           00047                 MOVLW   0x7E            ;RA1
+0018   0085           00048                 MOVWF   PORTA
+0019   3002           00049                 MOVLW   0x02
+001A   0087           00050                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C1
+001B   2119           00051                 CALL    RET
+                      00052 
+001C   30FF           00053                 MOVLW   0xFF            ;RA2
+001D   0085           00054                 MOVWF   PORTA
+001E   3004           00055                 MOVLW   0x04
+001F   0087           00056                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C2
+0020   2119           00057                 CALL    RET
+                      00058 
+0021   30FF           00059                 MOVLW   0xFF            ;RA3
+0022   0085           00060                 MOVWF   PORTA
+0023   3008           00061                 MOVLW   0x08
+0024   0087           00062                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C3
+0025   2119           00063                 CALL    RET
+                      00064 
+0026   30FF           00065                 MOVLW   0xFF            ;RA4
+0027   0085           00066                 MOVWF   PORTA
+0028   3010           00067                 MOVLW   0x10
+0029   0087           00068                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C4
+002A   2119           00069                 CALL    RET
+                      00070 
+002B   30FF           00071                 MOVLW   0xFF            ;RA5
+002C   0085           00072                 MOVWF   PORTA
+002D   3020           00073                 MOVLW   0x20
+002E   0087           00074                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C5
+002F   2119           00075                 CALL    RET
+                      00076 
+0030   307E           00077                 MOVLW   0x7E            ;RA6
+0031   0085           00078                 MOVWF   PORTA
+0032   3040           00079                 MOVLW   0x40
+0033   0087           00080                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C6
+0034   2119           00081                 CALL    RET
+                      00082 
+0035   303C           00083                 MOVLW   0x3C            ;RA7
+0036   0085           00084                 MOVWF   PORTA
+0037   3080           00085                 MOVLW   0x80
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0038   0087           00086                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C7
+0039   2119           00087                 CALL    RET
+                      00088                 
+003A   0BA0           00089                 DECFSZ  CON,1
+003B   2812           00090                 GOTO    FR1
+                      00091 ;**********************************
+003C   303C           00092                 MOVLW   0x3C                    ;NO. CICLOS PARA VISUALIZAR UN FRAME DE LA IMAGEN
+003D   00A0           00093                 MOVWF   CON
+003E                  00094 FR2                                                     ;FUNCION DEL FRAME NO. DE LA IMAGEN
+003E   303C           00095                 MOVLW   0x3C            ;RA0
+003F   0085           00096                 MOVWF   PORTA
+0040   3001           00097                 MOVLW   0x01
+0041   0087           00098                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C0
+0042   2119           00099                 CALL    RET
+                      00100 
+0043   307E           00101                 MOVLW   0x7E            ;RA1
+0044   0085           00102                 MOVWF   PORTA
+0045   3002           00103                 MOVLW   0x02
+0046   0087           00104                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C1
+0047   2119           00105                 CALL    RET
+                      00106 
+0048   30FF           00107                 MOVLW   0xFF            ;RA2
+0049   0085           00108                 MOVWF   PORTA
+004A   3004           00109                 MOVLW   0x04
+004B   0087           00110                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C2
+004C   2119           00111                 CALL    RET
+                      00112 
+004D   30FF           00113                 MOVLW   0xFF            ;RA3
+004E   0085           00114                 MOVWF   PORTA
+004F   3008           00115                 MOVLW   0x08
+0050   0087           00116                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C3
+0051   2119           00117                 CALL    RET
+                      00118 
+0052   30FF           00119                 MOVLW   0xFF            ;RA4
+0053   0085           00120                 MOVWF   PORTA
+0054   3010           00121                 MOVLW   0x10
+0055   0087           00122                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C4
+0056   2119           00123                 CALL    RET
+                      00124 
+0057   30FF           00125                 MOVLW   0xFF            ;RA5
+0058   0085           00126                 MOVWF   PORTA
+0059   3020           00127                 MOVLW   0x20
+005A   0087           00128                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C5
+005B   2119           00129                 CALL    RET
+                      00130 
+005C   307E           00131                 MOVLW   0x7E            ;RA6
+005D   0085           00132                 MOVWF   PORTA
+005E   3040           00133                 MOVLW   0x40
+005F   0087           00134                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C6
+0060   2119           00135                 CALL    RET
+                      00136 
+0061   3024           00137                 MOVLW   0x24            ;RA7
+0062   0085           00138                 MOVWF   PORTA
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0063   3080           00139                 MOVLW   0x80
+0064   0087           00140                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C7
+0065   2119           00141                 CALL    RET
+                      00142                 
+0066   0BA0           00143                 DECFSZ  CON,1
+0067   283E           00144                 GOTO    FR2
+                      00145 ;**********************************     
+0068   303C           00146                 MOVLW   0x3C                    ;NO. CICLOS PARA VISUALIZAR UN FRAME DE LA IMAGEN
+0069   00A0           00147                 MOVWF   CON
+006A                  00148 FR3                                                     ;FUNCION DEL FRAME NO. DE LA IMAGEN
+006A   303C           00149                 MOVLW   0x3C            ;RA0
+006B   0085           00150                 MOVWF   PORTA
+006C   3001           00151                 MOVLW   0x01
+006D   0087           00152                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C0
+006E   2119           00153                 CALL    RET
+                      00154 
+006F   307E           00155                 MOVLW   0x7E            ;RA1
+0070   0085           00156                 MOVWF   PORTA
+0071   3002           00157                 MOVLW   0x02
+0072   0087           00158                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C1
+0073   2119           00159                 CALL    RET
+                      00160 
+0074   30FF           00161                 MOVLW   0xFF            ;RA2
+0075   0085           00162                 MOVWF   PORTA
+0076   3004           00163                 MOVLW   0x04
+0077   0087           00164                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C2
+0078   2119           00165                 CALL    RET
+                      00166 
+0079   30FF           00167                 MOVLW   0xFF            ;RA3
+007A   0085           00168                 MOVWF   PORTA
+007B   3008           00169                 MOVLW   0x08
+007C   0087           00170                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C3
+007D   2119           00171                 CALL    RET
+                      00172 
+007E   30FF           00173                 MOVLW   0xFF            ;RA4
+007F   0085           00174                 MOVWF   PORTA
+0080   3010           00175                 MOVLW   0x10
+0081   0087           00176                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C4
+0082   2119           00177                 CALL    RET
+                      00178 
+0083   30FF           00179                 MOVLW   0xFF            ;RA5
+0084   0085           00180                 MOVWF   PORTA
+0085   3020           00181                 MOVLW   0x20
+0086   0087           00182                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C5
+0087   2119           00183                 CALL    RET
+                      00184 
+0088   30E7           00185                 MOVLW   0xE7            ;RA6
+0089   0085           00186                 MOVWF   PORTA
+008A   3040           00187                 MOVLW   0x40
+008B   0087           00188                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C6
+008C   2119           00189                 CALL    RET
+                      00190 
+008D   3042           00191                 MOVLW   0x42            ;RA7
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+008E   0085           00192                 MOVWF   PORTA
+008F   3080           00193                 MOVLW   0x80
+0090   0087           00194                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C7
+0091   2119           00195                 CALL    RET
+                      00196                 
+0092   0BA0           00197                 DECFSZ  CON,1
+0093   286A           00198                 GOTO    FR3
+                      00199 ;**********************************     
+0094   303C           00200                 MOVLW   0x3C                    ;NO. CICLOS PARA VISUALIZAR UN FRAME DE LA IMAGEN
+0095   00A0           00201                 MOVWF   CON
+0096                  00202 FR4                                                     ;FUNCION DEL FRAME NO. DE LA IMAGEN
+0096   303C           00203                 MOVLW   0x3C            ;RA0
+0097   0085           00204                 MOVWF   PORTA
+0098   3001           00205                 MOVLW   0x01
+0099   0087           00206                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C0
+009A   2119           00207                 CALL    RET
+                      00208 
+009B   307E           00209                 MOVLW   0x7E            ;RA1
+009C   0085           00210                 MOVWF   PORTA
+009D   3002           00211                 MOVLW   0x02
+009E   0087           00212                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C1
+009F   2119           00213                 CALL    RET
+                      00214 
+00A0   30FF           00215                 MOVLW   0xFF            ;RA2
+00A1   0085           00216                 MOVWF   PORTA
+00A2   3004           00217                 MOVLW   0x04
+00A3   0087           00218                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C2
+00A4   2119           00219                 CALL    RET
+                      00220 
+00A5   30FF           00221                 MOVLW   0xFF            ;RA3
+00A6   0085           00222                 MOVWF   PORTA
+00A7   3008           00223                 MOVLW   0x08
+00A8   0087           00224                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C3
+00A9   2119           00225                 CALL    RET
+                      00226 
+00AA   30FF           00227                 MOVLW   0xFF            ;RA4
+00AB   0085           00228                 MOVWF   PORTA
+00AC   3010           00229                 MOVLW   0x10
+00AD   0087           00230                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C4
+00AE   2119           00231                 CALL    RET
+                      00232 
+00AF   30E7           00233                 MOVLW   0xE7            ;RA5
+00B0   0085           00234                 MOVWF   PORTA
+00B1   3020           00235                 MOVLW   0x20
+00B2   0087           00236                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C5
+00B3   2119           00237                 CALL    RET
+                      00238 
+00B4   30C3           00239                 MOVLW   0xC3            ;RA6
+00B5   0085           00240                 MOVWF   PORTA
+00B6   3040           00241                 MOVLW   0x40
+00B7   0087           00242                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C6
+00B8   2119           00243                 CALL    RET
+                      00244 
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00B9   3081           00245                 MOVLW   0x81            ;RA7
+00BA   0085           00246                 MOVWF   PORTA
+00BB   3080           00247                 MOVLW   0x80
+00BC   0087           00248                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C7
+00BD   2119           00249                 CALL    RET
+                      00250                 
+00BE   0BA0           00251                 DECFSZ  CON,1
+00BF   2896           00252                 GOTO    FR4     
+                      00253 ;**********************************     
+00C0   303C           00254                 MOVLW   0x3C                    ;NO. CICLOS PARA VISUALIZAR UN FRAME DE LA IMAGEN
+00C1   00A0           00255                 MOVWF   CON
+00C2                  00256 FR5                                                     ;FUNCION DEL FRAME NO. DE LA IMAGEN
+00C2   303C           00257                 MOVLW   0x3C            ;RA0
+00C3   0085           00258                 MOVWF   PORTA
+00C4   3001           00259                 MOVLW   0x01
+00C5   0087           00260                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C0
+00C6   2119           00261                 CALL    RET
+                      00262 
+00C7   307E           00263                 MOVLW   0x7E            ;RA1
+00C8   0085           00264                 MOVWF   PORTA
+00C9   3002           00265                 MOVLW   0x02
+00CA   0087           00266                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C1
+00CB   2119           00267                 CALL    RET
+                      00268 
+00CC   30FF           00269                 MOVLW   0xFF            ;RA2
+00CD   0085           00270                 MOVWF   PORTA
+00CE   3004           00271                 MOVLW   0x04
+00CF   0087           00272                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C2
+00D0   2119           00273                 CALL    RET
+                      00274 
+00D1   30FF           00275                 MOVLW   0xFF            ;RA3
+00D2   0085           00276                 MOVWF   PORTA
+00D3   3008           00277                 MOVLW   0x08
+00D4   0087           00278                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C3
+00D5   2119           00279                 CALL    RET
+                      00280 
+00D6   30FF           00281                 MOVLW   0xFF            ;RA4
+00D7   0085           00282                 MOVWF   PORTA
+00D8   3010           00283                 MOVLW   0x10
+00D9   0087           00284                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C4
+00DA   2119           00285                 CALL    RET
+                      00286 
+00DB   30FF           00287                 MOVLW   0xFF            ;RA5
+00DC   0085           00288                 MOVWF   PORTA
+00DD   3020           00289                 MOVLW   0x20
+00DE   0087           00290                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C5
+00DF   2119           00291                 CALL    RET
+                      00292 
+00E0   30E7           00293                 MOVLW   0xE7            ;RA6
+00E1   0085           00294                 MOVWF   PORTA
+00E2   3040           00295                 MOVLW   0x40
+00E3   0087           00296                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C6
+00E4   2119           00297                 CALL    RET
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00298 
+00E5   3042           00299                 MOVLW   0x42            ;RA7
+00E6   0085           00300                 MOVWF   PORTA
+00E7   3080           00301                 MOVLW   0x80
+00E8   0087           00302                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C7
+00E9   2119           00303                 CALL    RET
+                      00304                 
+00EA   0BA0           00305                 DECFSZ  CON,1
+00EB   28C2           00306                 GOTO    FR5
+                      00307 ;**********************************
+00EC   303C           00308                 MOVLW   0x3C                    ;NO. CICLOS PARA VISUALIZAR UN FRAME DE LA IMAGEN
+00ED   00A0           00309                 MOVWF   CON
+00EE                  00310 FR6                                                     ;FUNCION DEL FRAME NO. DE LA IMAGEN
+00EE   303C           00311                 MOVLW   0x3C            ;RA0
+00EF   0085           00312                 MOVWF   PORTA
+00F0   3001           00313                 MOVLW   0x01
+00F1   0087           00314                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C0
+00F2   2119           00315                 CALL    RET
+                      00316 
+00F3   307E           00317                 MOVLW   0x7E            ;RA1
+00F4   0085           00318                 MOVWF   PORTA
+00F5   3002           00319                 MOVLW   0x02
+00F6   0087           00320                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C1
+00F7   2119           00321                 CALL    RET
+                      00322 
+00F8   30FF           00323                 MOVLW   0xFF            ;RA2
+00F9   0085           00324                 MOVWF   PORTA
+00FA   3004           00325                 MOVLW   0x04
+00FB   0087           00326                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C2
+00FC   2119           00327                 CALL    RET
+                      00328 
+00FD   30FF           00329                 MOVLW   0xFF            ;RA3
+00FE   0085           00330                 MOVWF   PORTA
+00FF   3008           00331                 MOVLW   0x08
+0100   0087           00332                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C3
+0101   2119           00333                 CALL    RET
+                      00334 
+0102   30FF           00335                 MOVLW   0xFF            ;RA4
+0103   0085           00336                 MOVWF   PORTA
+0104   3010           00337                 MOVLW   0x10
+0105   0087           00338                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C4
+0106   2119           00339                 CALL    RET
+                      00340 
+0107   30FF           00341                 MOVLW   0xFF            ;RA5
+0108   0085           00342                 MOVWF   PORTA
+0109   3020           00343                 MOVLW   0x20
+010A   0087           00344                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C5
+010B   2119           00345                 CALL    RET
+                      00346 
+010C   307E           00347                 MOVLW   0x7E            ;RA6
+010D   0085           00348                 MOVWF   PORTA
+010E   3040           00349                 MOVLW   0x40
+010F   0087           00350                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C6
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0110   2119           00351                 CALL    RET
+                      00352 
+0111   3024           00353                 MOVLW   0x24            ;RA7
+0112   0085           00354                 MOVWF   PORTA
+0113   3080           00355                 MOVLW   0x80
+0114   0087           00356                 MOVWF   PORTC           ;LEDS A ENCENDER EN LA FILA C7
+0115   2119           00357                 CALL    RET
+                      00358                 
+0116   0BA0           00359                 DECFSZ  CON,1
+0117   28EE           00360                 GOTO    FR6
+                      00361                 
+0118   280F           00362                 GOTO    C_P
+                      00363 
+0119   307F           00364 RET             MOVLW   0x7F            
+011A   0081           00365                 MOVWF   TMR0
+011B   1D0B           00366 ET0IFX  BTFSS   INTCON,T0IF
+011C   291B           00367                 GOTO    ET0IFX
+011D   110B           00368                 BCF             INTCON,T0IF
+011E   0008           00369                 RETURN
+                      00370 
+                      00371                 END
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ABDEN                             00000000
+ABDOVF                            00000007
+ACKDT                             00000005
+ACKEN                             00000004
+ACKSTAT                           00000006
+ADCON0                            0000001F
+ADCON1                            0000009F
+ADCS0                             00000006
+ADCS1                             00000007
+ADDEN                             00000003
+ADFM                              00000007
+ADIE                              00000006
+ADIF                              00000006
+ADON                              00000000
+ADRESH                            0000001E
+ADRESL                            0000009E
+ANS0                              00000000
+ANS1                              00000001
+ANS10                             00000002
+ANS11                             00000003
+ANS12                             00000004
+ANS13                             00000005
+ANS2                              00000002
+ANS3                              00000003
+ANS4                              00000004
+ANS5                              00000005
+ANS6                              00000006
+ANS7                              00000007
+ANS8                              00000000
+ANS9                              00000001
+ANSEL                             00000188
+ANSELH                            00000189
+BAUDCTL                           00000187
+BCLIE                             00000003
+BCLIF                             00000003
+BF                                00000000
+BRG0                              00000000
+BRG1                              00000001
+BRG10                             00000002
+BRG11                             00000003
+BRG12                             00000004
+BRG13                             00000005
+BRG14                             00000006
+BRG15                             00000007
+BRG16                             00000003
+BRG2                              00000002
+BRG3                              00000003
+BRG4                              00000004
+BRG5                              00000005
+BRG6                              00000006
+BRG7                              00000007
+BRG8                              00000000
+BRG9                              00000001
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BRGH                              00000002
+C                                 00000000
+C1CH0                             00000000
+C1CH1                             00000001
+C1IE                              00000005
+C1IF                              00000005
+C1OE                              00000005
+C1ON                              00000007
+C1OUT                             00000006
+C1POL                             00000004
+C1R                               00000002
+C1RSEL                            00000005
+C1SEN                             00000005
+C2CH0                             00000000
+C2CH1                             00000001
+C2IE                              00000006
+C2IF                              00000006
+C2OE                              00000005
+C2ON                              00000007
+C2OUT                             00000006
+C2POL                             00000004
+C2R                               00000002
+C2REN                             00000004
+C2RSEL                            00000004
+C2SYNC                            00000000
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCP2CON                           0000001D
+CCP2IE                            00000000
+CCP2IF                            00000000
+CCP2M0                            00000000
+CCP2M1                            00000001
+CCP2M2                            00000002
+CCP2M3                            00000003
+CCP2X                             00000005
+CCP2Y                             00000004
+CCPR1                             00000015
+CCPR1H                            00000016
+CCPR1L                            00000015
+CCPR2                             0000001B
+CCPR2H                            0000001C
+CCPR2L                            0000001B
+CHS0                              00000002
+CHS1                              00000003
+CHS2                              00000004
+CHS3                              00000005
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CKE                               00000006
+CKP                               00000004
+CM1CON0                           00000107
+CM2CON0                           00000108
+CM2CON1                           00000109
+CON                               00000020
+CREN                              00000004
+CSRC                              00000007
+C_P                               0000000F
+D                                 00000005
+DATA_ADDRESS                      00000005
+DC                                00000001
+DC1B0                             00000004
+DC1B1                             00000005
+DC2B0                             00000004
+DC2B1                             00000005
+D_A                               00000005
+D_NOT_A                           00000005
+ECCPAS                            0000009C
+ECCPAS0                           00000004
+ECCPAS1                           00000005
+ECCPAS2                           00000006
+ECCPASE                           00000007
+EEADR                             0000010D
+EEADRH                            0000010F
+EECON1                            0000018C
+EECON2                            0000018D
+EEDAT                             0000010C
+EEDATA                            0000010C
+EEDATH                            0000010E
+EEIE                              00000004
+EEIF                              00000004
+EEPGD                             00000007
+ET0IFX                            0000011B
+F                                 00000001
+FERR                              00000002
+FR1                               00000012
+FR2                               0000003E
+FR3                               0000006A
+FR4                               00000096
+FR5                               000000C2
+FR6                               000000EE
+FSR                               00000004
+FVREN                             00000000
+GCEN                              00000007
+GIE                               00000007
+GO                                00000001
+GO_DONE                           00000001
+GO_NOT_DONE                       00000001
+HTS                               00000002
+I2C_DATA                          00000005
+I2C_READ                          00000002
+I2C_START                         00000003
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+I2C_STOP                          00000004
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IOCB                              00000096
+IOCB0                             00000000
+IOCB1                             00000001
+IOCB2                             00000002
+IOCB3                             00000003
+IOCB4                             00000004
+IOCB5                             00000005
+IOCB6                             00000006
+IOCB7                             00000007
+IRCF0                             00000004
+IRCF1                             00000005
+IRCF2                             00000006
+IRP                               00000007
+LTS                               00000001
+MC1OUT                            00000007
+MC2OUT                            00000006
+MSK                               00000093
+MSK0                              00000000
+MSK1                              00000001
+MSK2                              00000002
+MSK3                              00000003
+MSK4                              00000004
+MSK5                              00000005
+MSK6                              00000006
+MSK7                              00000007
+NOT_A                             00000005
+NOT_ADDRESS                       00000005
+NOT_BO                            00000000
+NOT_BOR                           00000000
+NOT_DONE                          00000001
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_RC8                           00000006
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_TX8                           00000006
+NOT_W                             00000002
+NOT_WRITE                         00000002
+OERR                              00000001
+OPTION_REG                        00000081
+OSCCON                            0000008F
+OSCTUNE                           00000090
+OSFIE                             00000007
+OSFIF                             00000007
+OSTS                              00000003
+P                                 00000004
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+P1M0                              00000006
+P1M1                              00000007
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PDC0                              00000000
+PDC1                              00000001
+PDC2                              00000002
+PDC3                              00000003
+PDC4                              00000004
+PDC5                              00000005
+PDC6                              00000006
+PEIE                              00000006
+PEN                               00000002
+PIE1                              0000008C
+PIE2                              0000008D
+PIR1                              0000000C
+PIR2                              0000000D
+PORTA                             00000005
+PORTB                             00000006
+PORTC                             00000007
+PORTD                             00000008
+PORTE                             00000009
+PR2                               00000092
+PRSEN                             00000007
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PSSAC0                            00000002
+PSSAC1                            00000003
+PSSBD0                            00000000
+PSSBD1                            00000001
+PSTRCON                           0000009D
+PULSR                             00000002
+PULSS                             00000003
+PWM1CON                           0000009B
+R                                 00000002
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RA6                               00000006
+RA7                               00000007
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RC0                               00000000
+RC1                               00000001
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+RC5                               00000005
+RC6                               00000006
+RC7                               00000007
+RC8_9                             00000006
+RC9                               00000006
+RCD8                              00000000
+RCEN                              00000003
+RCIDL                             00000006
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+RD0                               00000000
+RD1                               00000001
+RD2                               00000002
+RD3                               00000003
+RD4                               00000004
+RD5                               00000005
+RD6                               00000006
+RD7                               00000007
+RE0                               00000000
+RE1                               00000001
+RE2                               00000002
+RE3                               00000003
+READ_WRITE                        00000002
+RET                               00000119
+RP0                               00000005
+RP1                               00000006
+RSEN                              00000001
+RX9                               00000006
+RX9D                              00000000
+R_NOT_W                           00000002
+R_W                               00000002
+S                                 00000003
+SBOREN                            00000004
+SCKP                              00000004
+SCS                               00000000
+SEN                               00000000
+SENDB                             00000003
+SMP                               00000007
+SPBRG                             00000099
+SPBRGH                            0000009A
+SPEN                              00000007
+SR0                               00000006
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+SR1                               00000007
+SRCON                             00000185
+SREN                              00000005
+SSPADD                            00000093
+SSPBUF                            00000013
+SSPCON                            00000014
+SSPCON2                           00000091
+SSPEN                             00000005
+SSPIE                             00000003
+SSPIF                             00000003
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+SSPM3                             00000003
+SSPMSK                            00000093
+SSPOV                             00000006
+SSPSTAT                           00000094
+STATUS                            00000003
+STRA                              00000000
+STRB                              00000001
+STRC                              00000002
+STRD                              00000003
+STRSYNC                           00000004
+SWDTEN                            00000000
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1GINV                            00000007
+T1GIV                             00000007
+T1GSS                             00000001
+T1INSYNC                          00000002
+T1OSCEN                           00000003
+T1SYNC                            00000002
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR1                              0000000E
+TMR1CS                            00000001
+TMR1GE                            00000006
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISA6                            00000006
+TRISA7                            00000007
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRISC                             00000087
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+TRISC6                            00000006
+TRISC7                            00000007
+TRISD                             00000088
+TRISD0                            00000000
+TRISD1                            00000001
+TRISD2                            00000002
+TRISD3                            00000003
+TRISD4                            00000004
+TRISD5                            00000005
+TRISD6                            00000006
+TRISD7                            00000007
+TRISE                             00000089
+TRISE0                            00000000
+TRISE1                            00000001
+TRISE2                            00000002
+TRISE3                            00000003
+TRMT                              00000001
+TUN0                              00000000
+TUN1                              00000001
+TUN2                              00000002
+TUN3                              00000003
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TUN4                              00000004
+TX8_9                             00000006
+TX9                               00000006
+TX9D                              00000000
+TXD8                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+UA                                00000001
+ULPWUE                            00000005
+ULPWUIE                           00000002
+ULPWUIF                           00000002
+VCFG0                             00000004
+VCFG1                             00000005
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+VR3                               00000003
+VRCON                             00000097
+VREN                              00000007
+VROE                              00000006
+VRR                               00000005
+VRSS                              00000004
+W                                 00000000
+WCOL                              00000007
+WDTCON                            00000105
+WDTPS0                            00000001
+WDTPS1                            00000002
+WDTPS2                            00000003
+WDTPS3                            00000004
+WPUB                              00000095
+WPUB0                             00000000
+WPUB1                             00000001
+WPUB2                             00000002
+WPUB3                             00000003
+WPUB4                             00000004
+WPUB5                             00000005
+WPUB6                             00000006
+WPUB7                             00000007
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+WUE                               00000001
+Z                                 00000002
+_BOR21V                           00003EFF
+_BOR40V                           00003FFF
+_BOR4V_BOR21V                     00003EFF
+_BOR4V_BOR40V                     00003FFF
+_BOREN_NSLEEP                     00003EFF
+_BOREN_OFF                        00003CFF
+_BOREN_ON                         00003FFF
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_BOREN_SBODEN                     00003DFF
+_BOR_NSLEEP                       00003EFF
+_BOR_OFF                          00003CFF
+_BOR_ON                           00003FFF
+_BOR_SBODEN                       00003DFF
+_CONFIG1                          00002007
+_CONFIG2                          00002008
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003F7F
+_CP_OFF                           00003FFF
+_CP_ON                            00003FBF
+_DEBUG_OFF                        00003FFF
+_DEBUG_ON                         00001FFF
+_DEVID1                           00002006
+_EC_OSC                           00003FFB
+_EXTRC                            00003FFF
+_EXTRCIO                          00003FFE
+_EXTRC_OSC_CLKOUT                 00003FFF
+_EXTRC_OSC_NOCLKOUT               00003FFE
+_FCMEN_OFF                        000037FF
+_FCMEN_ON                         00003FFF
+_FOSC_EC                          00003FFB
+_FOSC_EXTRC_CLKOUT                00003FFF
+_FOSC_EXTRC_NOCLKOUT              00003FFE
+_FOSC_HS                          00003FFA
+_FOSC_INTRC_CLKOUT                00003FFD
+_FOSC_INTRC_NOCLKOUT              00003FFC
+_FOSC_LP                          00003FF8
+_FOSC_XT                          00003FF9
+_HS_OSC                           00003FFA
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_IESO_OFF                         00003BFF
+_IESO_ON                          00003FFF
+_INTOSC                           00003FFD
+_INTOSCIO                         00003FFC
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FF8
+_LVP_OFF                          00002FFF
+_LVP_ON                           00003FFF
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FEF
+_WDTE_OFF                         00003FF7
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FF7
+_WDT_ON                           00003FFF
+_WRT_1FOURTH                      00003BFF
+_WRT_256                          00003DFF
+MPASM  5.51                          88D3.ASM   3-21-2022  19:56:42         PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WRT_HALF                         000039FF
+_WRT_OFF                          00003FFF
+_XT_OSC                           00003FF9
+__16F887                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0080 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+00C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0100 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXX- ---------------- ----------------
+2000 : -------XX------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:   287
+Program Memory Words Free:  7905
+
+
+Errors   :     0
+Warnings :     2 reported,     0 suppressed
+Messages :     8 reported,     0 suppressed
+
+

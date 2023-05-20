@@ -1,0 +1,186 @@
+
+PROCESSOR	P16F887
+INCLUDE	    <P16F887.INC>
+
+	__CONFIG _CONFIG1, (_INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_ON & _CP_OFF & _CPD_OFF & _BOR_OFF & _IESO_OFF & _FCMEN_OFF & _LVP_OFF & _DEBUG_OFF)
+	__CONFIG _CONFIG2, (_WRT_OFF & _BOR40V)
+	
+N	    EQU     0x20
+M	    EQU	    0x21
+O	    EQU	    0x22
+CONTA	    EQU  0x23
+VA	    EQU  0x24
+VB	    EQU  0x25    
+VC	    EQU  0x26
+CT	    EQU  0x27
+UNID	    EQU  0x2A
+DECE	    EQU  0x29
+CENT	    EQU  0x28
+MILL	    EQU  0x2B
+MUESTRAS    EQU  0x2C
+REF	    EQU  0x2D
+RX	    EQU  0x2E
+XA	    EQU  0x2F
+XB	    EQU  0x30
+	    
+	   ORG	    0x00
+    BANKSEL TRISE
+    MOVLW   0x03
+    MOVWF   TRISE
+    BANKSEL ANSELH
+    MOVLW   B'00000000'
+    MOVWF   ANSELH
+    BANKSEL ANSEL
+    MOVLW   B'00100000'
+    MOVWF   ANSEL
+    BANKSEL TRISA
+    CLRF    TRISA
+    CLRF    TRISB
+    CLRF    TRISC   
+    CLRF    TRISD
+    MOVLW   0XD3
+    MOVWF   OPTION_REG
+    BANKSEL PORTA 
+    CLRF    ADRESH
+    CLRF    ADRESL
+    MOVLW 0XD5
+    MOVWF ADCON0
+    
+    BANKSEL ADCON1
+    CLRF    ADCON1
+    
+    BANKSEL PORTA
+
+    
+C_P
+    
+    MOVLW   0X64
+    MOVWF   MUESTRAS
+    CLRF   UNID
+    CLRF   DECE
+    CLRF   CENT
+    CLRF   MILL
+  
+    BSF	    ADCON0,GO_DONE
+    
+EAD BTFSC   ADCON0,GO_DONE
+    GOTO    EAD
+    MOVF    ADRESH, W ; LA INFO ALMACENADA EN EL REGISTRO ADRESH LO PASAMOS A W
+    MOVWF   CONTA
+    
+;    MOVLW   .124
+;    MOVWF   CONTA
+    GOTO    OPE
+    
+OPE
+    
+    MOVLW   0x33 ;51
+    SUBWF   CONTA,F
+    BTFSS   STATUS,0
+    GOTO    XM
+    INCF    CENT,1
+    MOVF    CONTA,W
+    MOVWF   VB ;residuo
+    GOTO    OPE
+XM
+    MOVLW   0x01
+    SUBWF   CENT,W
+    BTFSS   STATUS,0
+    GOTO    CERO
+    GOTO    XMM
+    
+CERO
+    MOVF    ADRESH,W
+    MOVWF   VB ;residuo
+    GOTO    XMM
+    
+XMM
+    MOVLW   0x05
+    SUBWF   VB,F
+    BTFSS   STATUS,0
+    GOTO    DM
+    INCF    DECE,1
+    MOVF    VB,W
+    MOVWF   VC 
+    GOTO    XMM
+
+DM
+    MOVLW   0x01
+    SUBWF   DECE,W
+    BTFSS   STATUS,0
+    GOTO    CERO2
+    GOTO    DMM
+
+CERO2
+    MOVF    VB,W
+    MOVWF   UNID
+    GOTO    UM
+    
+DMM
+    MOVF    VC,W
+    MOVWF   UNID
+    GOTO    UM
+    
+UM
+    CALL    MUESTRA_DISPLAY
+    GOTO    C_P
+    
+MUESTRA_DISPLAY
+    
+    	
+    MOVF	UNID,W
+    CALL	T7S
+    MOVWF	PORTA
+    MOVLW	0x08
+    MOVWF	PORTC	
+    CALL	RET		
+
+    MOVF	DECE,W
+    CALL	T7S
+    MOVWF	PORTA
+    MOVLW	0x04
+    MOVWF	PORTC	
+    CALL	RET		
+
+    MOVF	CENT,W
+    CALL	T7S
+    MOVWF	PORTA
+    MOVLW	0x02
+    MOVWF	PORTC	
+    CALL	RET		
+
+    MOVF	MILL,W
+    CALL	T7S
+    MOVWF	PORTA
+    MOVLW	0x01
+    MOVWF	PORTC	
+    CALL	RET		
+    DECFSZ	MUESTRAS,F
+    GOTO	C_P
+    RETURN
+    
+
+T7S
+    ADDWF   PCL,F
+    RETLW   0x3F ;0
+    RETLW   0x06 ;1
+    RETLW   0x5B ;2
+    RETLW   0x4F ;3
+    RETLW   0x66 ;4
+    RETLW   0x6D ;5
+    RETLW   0x7D ;6
+    RETLW   0x07 ;7
+    RETLW   0x7F ;8
+    RETLW   0x67 ;9
+ 
+RET	MOVLW 0x65
+	MOVWF TMR0
+ET0IF	BTFSS INTCON, T0IF
+	GOTO ET0IF
+	BCF INTCON, T0IF
+	
+	RETURN
+
+
+
+    END

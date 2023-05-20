@@ -1,0 +1,8 @@
+Warning[215] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 27 : Processor superseded by command line.  Verify processor symbol.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 51 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 52 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 55 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 56 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 57 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 58 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\DISPLAY_ASCIEND.ASM 59 : Register in operand not in bank 0.  Ensure that bank bits are correct.

@@ -1,0 +1,194 @@
+;*******************************************************	    
+SUBT1V	    MACRO	VAR1
+	    MOVLW	VAR1
+	    MOVWF	0X60
+	    CALL	ST1V
+	    ENDM
+;*******************************************************	    
+SUBT2V	    MACRO	VAR1,VAR2
+	    MOVLW	VAR2
+	    MOVWF	0X61
+	    MOVLW	VAR1
+	    MOVWF	0X62
+	    CALL	ST2V
+	    ENDM
+;*******************************************************	    
+SUBT3V	    MACRO	VAR1,VAR2,VAR3
+	    MOVLW	VAR1
+	    MOVWF	0X64
+	    MOVLW	VAR2
+	    MOVWF	0X65
+	    MOVLW	VAR3
+	    MOVWF	0X66
+	    CALL	ST3V
+	    ENDM
+;*******************************************************		
+		
+		PROCESSOR	P16F887
+		INCLUDE		<P16F887.INC>
+
+		__CONFIG _CONFIG1, (_INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF & _CPD_OFF & _BOR_OFF & _IESO_OFF & _FCMEN_OFF & _LVP_OFF & _DEBUG_OFF)
+		__CONFIG _CONFIG2, (_WRT_OFF & _BOR40V)
+		
+		ORG	0x00
+		
+#DEFINE		UNID_E	BSF PORTC,0
+#DEFINE		UNID_A	BCF PORTC,0
+#DEFINE		DECE_E	BSF PORTC,1
+#DEFINE		DECE_A	BCF PORTC,1
+#DEFINE		CENTE_E	BSF PORTC,2
+#DEFINE		CENTE_A	BCF PORTC,2
+#DEFINE		MILL_E	BSF PORTC,3
+#DEFINE		MILL_A	BCF PORTC,3
+UNID		EQU	0x20
+DECE		EQU	0x21
+CENT		EQU	0x22
+MILL		EQU	0x23
+CONT60		EQU	0x24
+		
+
+		BANKSEL ANSEL	;CAMBIO BANCO 3
+		CLRF 	ANSEL
+		CLRF 	ANSELH
+	
+		BANKSEL	TRISA	;CAMBIO BANCO 1
+		CLRF	TRISB
+		CLRF	TRISA
+		CLRF	TRISC
+		CLRF	TRISD
+		CLRF	TRISE
+		
+
+		BANKSEL	PORTA	;CAMBIO BANCO 0	
+		
+		CLRF	PORTA
+		CLRF	PORTB
+		CLRF	PORTD
+		CLRF	PORTE
+	
+LIMPIAMIL:	MOVLW	0x09
+			MOVWF	MILL
+LIMPIACEN:	MOVLW	0x09
+			MOVWF	CENT
+LIMPIADEC:	MOVLW	0x09
+			MOVWF	DECE
+LIMPIAUNI:	MOVLW	0x09
+			MOVWF	UNID
+REC60:		MOVLW	.15
+			MOVWF	CONT60
+		
+DESPLEGADO:	MOVF	UNID,W
+			CALL	SIETESEG
+			MOVWF	PORTA
+			UNID_E
+			CALL	RET
+			UNID_A
+			
+			MOVF	DECE,W
+			CALL	SIETESEG
+			MOVWF	PORTA
+			DECE_E
+			CALL	RET
+			DECE_A
+			
+			MOVF	CENT,W
+			CALL	SIETESEG
+			MOVWF	PORTA
+			CENTE_E
+			CALL	RET
+			CENTE_A
+	
+			MOVF	MILL,W
+			CALL	SIETESEG
+			MOVWF	PORTA
+			MILL_E
+			CALL	RET
+			MILL_A	
+			
+			DECFSZ	CONT60,F
+			GOTO	DESPLEGADO
+			
+			DECF	UNID,F
+			MOVLW	0xFF
+			XORWF	UNID,W
+			BTFSS	STATUS,Z
+			GOTO	REC60
+			
+			DECF	DECE,F
+			MOVLW	0xFF
+			XORWF	DECE,W
+			BTFSS	STATUS,Z
+			GOTO	LIMPIAUNI
+			
+			DECF	CENT,F
+			MOVLW	0xFF
+			XORWF	CENT,W
+			BTFSS	STATUS,Z
+			GOTO	LIMPIADEC
+			
+			DECF	MILL,F
+			MOVLW	0xFF
+			XORWF	MILL,W
+			BTFSS	STATUS,Z
+			GOTO	LIMPIACEN
+			GOTO	LIMPIAMIL
+	
+SIETESEG:	ADDWF	PCL,F
+		RETLW	0x3F 
+		RETLW	0x06
+		RETLW	0x5B
+		RETLW	0x4F
+		RETLW	0x66    
+		RETLW	0x6D
+		RETLW	0x7D    
+		RETLW	0x07
+		RETLW	0x7F    
+		RETLW	0x6F
+		RETLW	0x77    
+		RETLW	0x7C
+		RETLW	0x39     
+		RETLW	0x5E
+		RETLW	0x79    
+		RETLW	0x71
+
+RET:	SUBT2V	.2,.231	;4166 us
+		RETURN
+		
+;**********************************************************************	
+ST1V:		NOP
+		NOP
+		NOP
+		NOP
+		DECFSZ	    0X60,F
+		GOTO	    ST1V
+		RETURN
+;**********************************************************************			
+ST2V:		MOVF	    0X62,W
+		MOVWF	    0X63
+DECRE2V:	NOP
+		NOP
+		NOP
+		NOP
+		DECFSZ	    0X63,F
+		GOTO	    DECRE2V
+		DECFSZ	    0X61,F
+		GOTO	    ST2V
+		RETURN
+;**********************************************************************		
+ST3V:		MOVF	    0X66,W
+		MOVWF	    0X67
+RECARGA3V:	MOVWF	    0X68
+DECRE3V:	NOP
+		NOP
+		NOP
+		NOP
+		DECFSZ	    0X68,F
+		GOTO	    DECRE3V
+		DECFSZ	    0X67,F
+		GOTO	    RECARGA3V
+		DECFSZ	    0X64,F
+		GOTO	    ST3V
+		RETURN
+	   
+		END
+	    

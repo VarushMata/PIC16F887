@@ -1,0 +1,25 @@
+Gracias por preferir el Programador para PIC's por puerto USB PIC-605.
+
+Considere que debe tener derechos de Administrador en su computadora para instalar y ejecutar este programa.
+
+Para comenzar a utilizarlo sólo tiene que:
+
+1. Insertar el disco de instalación proporcionado con el PIC-605 en la unidad de CD de su computadora.
+2. Ejecutar el programa Instalar PIC-605 Windows 98_ME_2K_XP.
+3. Seguir las instrucciones que le aparecerán durante el proceso de instalación.
+4. Conectar su PIC-605 a la computadora mediante un cable USB tipo impresora (no suministrado).
+5. Su computadora detectará que se ha conectado un nuevo dispositivo, seleccione "No por el momento" y “Siguiente”
+6. En la siguiente ventana seleccione la opción “Instalar desde una lista o ubicación específica (avanzado)” y presione “Siguiente” para continuar
+7. Seleccione “Examinar” y busque la carpeta “C:\Archivos de programa (x86)\Steren PIC-605\driver\driver_98_me_2k_xp” 
+8. Seleccione “Siguiente” y el proceso de instalación comenzará. Es posible que durante el proceso aparezca un mensaje acerca del logotipo de Windows, seleccione “Continuar”
+9. Presione “Finalizar” para concluir el proceso, entonces podrá abrir el programa PIC-605 y comenzar a utilizar su programador.
+10. Abrir el programa PIC-605 mediante el ícono en su menú de programas o el acceso directo de su escritorio
+
+Le recomendamos siempre conectar el programador antes de abrir el programa PIC-605.
+
+Por favor lea las instrucciones contenidas en este CD y en los documentos impresos.
+
+Para cualquier duda o comentario consulte la página de Internet www.steren.com.mx
+
+Disfrute de la versatilidad y velocidad de su nuevo programador PIC-605.
+

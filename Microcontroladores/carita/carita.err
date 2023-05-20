@@ -1,0 +1,13 @@
+Warning[205] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 1 : Found directive in column 1. (INCLUDE)
+Warning[207] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 6 : Found label after column 1. (CUENTA)
+Warning[207] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 7 : Found label after column 1. (O)
+Warning[207] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 8 : Found label after column 1. (M)
+Warning[207] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 9 : Found label after column 1. (N)
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 14 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 15 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 21 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 22 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 23 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\CARITA.ASM 25 : Register in operand not in bank 0.  Ensure that bank bits are correct.

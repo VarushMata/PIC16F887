@@ -1,0 +1,11 @@
+Warning[205] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 1 : Found directive in column 1. (PROCESSOR)
+Warning[215] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 1 : Processor superseded by command line.  Verify processor symbol.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 12 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 13 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 16 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 17 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 18 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 23 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[203] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\MICROCONTROLADORES\PROYECTOS\88D4\88D4.ASM 1748 : Found opcode in column 1. (GOTO)

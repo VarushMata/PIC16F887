@@ -1,0 +1,17 @@
+Warning[215] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 1 : Processor superseded by command line.  Verify processor symbol.
+Warning[205] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 4 : Found directive in column 1. (__CONFIG)
+Warning[205] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 5 : Found directive in column 1. (__CONFIG)
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 26 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 28 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 33 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 35 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 37 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 39 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 42 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 43 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 46 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 49 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 52 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 54 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 150 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOWNLOADS\COMUNICACION_SPI\ESPI.ASM 162 : Register in operand not in bank 0.  Ensure that bank bits are correct.

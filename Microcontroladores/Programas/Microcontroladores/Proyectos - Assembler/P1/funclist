@@ -1,0 +1,6 @@
+_putch: CODE, 2040 0 8
+_main: CODE, 1929 0 59
+_getch: CODE, 1908 0 6
+_printf: CODE, 1988 0 52
+_init_comms: CODE, 1914 0 15
+Total: 140

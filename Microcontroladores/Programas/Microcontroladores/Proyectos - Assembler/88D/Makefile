@@ -1,0 +1,19 @@
+# MPLAB IDE generated this makefile for use with GNU make.
+# Project: 88D.mcp
+# Date: Mon Mar 21 17:10:24 2022
+
+AS = MPASMWIN.exe
+CC = 
+LD = mplink.exe
+AR = mplib.exe
+RM = rm
+
+88D.cof : 88D.o
+	$(CC) /p16F887 "88D.o" /z__MPLAB_BUILD=1 /o"88D.cof" /M"88D.map" /W /x
+
+88D.o : 88D.asm ../../../../../../../Program\ Files\ (x86)/Microchip/MPASM\ Suite/P16F887.INC
+	$(AS) /q /p16F887 "88D.asm" /l"88D.lst" /e"88D.err"
+
+clean : 
+	$(CC) "88D.o" "88D.hex" "88D.err" "88D.lst" "88D.cof"
+

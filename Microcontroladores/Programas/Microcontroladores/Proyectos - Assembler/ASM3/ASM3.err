@@ -1,0 +1,12 @@
+Warning[205] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 1 : Found directive in column 1. (PROCESSOR)
+Warning[215] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 1 : Processor superseded by command line.  Verify processor symbol.
+Warning[205] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 4 : Found directive in column 1. (__CONFIG)
+Warning[205] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 5 : Found directive in column 1. (__CONFIG)
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 24 : Using default destination of 1 (file).
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 24 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 25 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 27 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 28 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JORGE\ONEDRIVE\ESCRITORIO\PROYECTOS\ASM3\ASM3.ASM 29 : Register in operand not in bank 0.  Ensure that bank bits are correct.

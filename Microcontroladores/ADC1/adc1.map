@@ -1,0 +1,65 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Mon Oct 17 23:21:23 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0000bc
+                   .cinit    romdata   0x00005e    program   0x000004
+      .config_2007_ADC1.O       code   0x002007    program   0x000002
+      .config_2008_ADC1.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00005f      
+                            0x002007    0x002008      
+            98 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      C_P   0x000013    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                     EDT0   0x000034    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                     E_C5   0x000016    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                     E_C6   0x00001f    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      MC5   0x000025    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      MC6   0x00002b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      RET   0x000032    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      RX8   0x000038    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_1   0x00005c    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_2   0x00005b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_3   0x00005a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_4   0x000059    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_5   0x000058    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_6   0x000057    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_7   0x000056    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_8   0x000055    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      C_P   0x000013    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                     E_C5   0x000016    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                     E_C6   0x00001f    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      MC5   0x000025    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      MC6   0x00002b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      RET   0x000032    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                     EDT0   0x000034    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      RX8   0x000038    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_8   0x000055    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_7   0x000056    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_6   0x000057    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_5   0x000058    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_4   0x000059    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_3   0x00005a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_2   0x00005b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+                      R_1   0x00005c    program     static C:\Users\Varush\Documents\Microcontroladores\P1\ADC1.asm
+
+

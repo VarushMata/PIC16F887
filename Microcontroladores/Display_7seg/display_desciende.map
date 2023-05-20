@@ -1,0 +1,61 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Wed Oct 19 12:11:58 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000102
+                   .cinit    romdata   0x000081    program   0x000004
+.config_2007_DESCIENDE_DISPLAY.O       code   0x002007    program   0x000002
+.config_2008_DESCIENDE_DISPLAY.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000082      
+                            0x002007    0x002008      
+            133 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  DECRE2V   0x00006a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                  DECRE3V   0x000076    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+               DESPLEGADO   0x00001b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                LIMPIACEN   0x000013    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                LIMPIADEC   0x000015    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                LIMPIAMIL   0x000011    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                LIMPIAUNI   0x000017    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                    REC60   0x000019    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                RECARGA3V   0x000075    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                      RET   0x00005b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                 SIETESEG   0x00004a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                     ST1V   0x000061    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                     ST2V   0x000068    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                     ST3V   0x000073    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                LIMPIAMIL   0x000011    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                LIMPIACEN   0x000013    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                LIMPIADEC   0x000015    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                LIMPIAUNI   0x000017    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                    REC60   0x000019    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+               DESPLEGADO   0x00001b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                 SIETESEG   0x00004a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                      RET   0x00005b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                     ST1V   0x000061    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                     ST2V   0x000068    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                  DECRE2V   0x00006a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                     ST3V   0x000073    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                RECARGA3V   0x000075    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+                  DECRE3V   0x000076    program     static C:\Users\Varush\Documents\Microcontroladores\P1\desciende_display.asm
+
+

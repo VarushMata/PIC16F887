@@ -1,0 +1,79 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Wed Oct 19 19:17:14 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0001e0
+                   .cinit    romdata   0x0000f0    program   0x000004
+.config_2007_PAUSE_DISPLAY.O       code   0x002007    program   0x000002
+.config_2008_PAUSE_DISPLAY.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x0000f1      
+                            0x002007    0x002008      
+            244 out of 8455 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    CONTC   0x00004e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    CONTD   0x000045    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    CONTM   0x000057    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    CONTU   0x00003c    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                  DECRE2V   0x0000d9    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                  DECRE3V   0x0000e5    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+               DESPLEGADO   0x00001d    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                 ESTATICO   0x0000a0    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                LIMPIACEN   0x000018    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                LIMPIADEC   0x000019    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                LIMPIAMIL   0x000017    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                LIMPIAUNI   0x00001a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    REC60   0x00001b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                RECARGA3V   0x0000e4    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                      RET   0x0000ca    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                 SIETESEG   0x0000b9    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     ST1V   0x0000d0    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     ST2V   0x0000d7    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     ST3V   0x0000e2    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                      UWU   0x00005c    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     UWUC   0x00007e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     UWUD   0x00006d    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     UWUM   0x00008f    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                LIMPIAMIL   0x000017    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                LIMPIACEN   0x000018    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                LIMPIADEC   0x000019    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                LIMPIAUNI   0x00001a    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    REC60   0x00001b    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+               DESPLEGADO   0x00001d    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    CONTU   0x00003c    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    CONTD   0x000045    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    CONTC   0x00004e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                    CONTM   0x000057    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                      UWU   0x00005c    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     UWUD   0x00006d    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     UWUC   0x00007e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     UWUM   0x00008f    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                 ESTATICO   0x0000a0    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                 SIETESEG   0x0000b9    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                      RET   0x0000ca    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     ST1V   0x0000d0    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     ST2V   0x0000d7    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                  DECRE2V   0x0000d9    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                     ST3V   0x0000e2    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                RECARGA3V   0x0000e4    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+                  DECRE3V   0x0000e5    program     static C:\Users\Varush\Documents\Microcontroladores\P1\pause_display.asm
+
+

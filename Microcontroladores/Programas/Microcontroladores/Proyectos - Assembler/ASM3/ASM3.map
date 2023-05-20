@@ -1,0 +1,45 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Sat Mar 05 21:29:51 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x00004e
+      .config_2007_ASM3.O       code   0x002007    program   0x000002
+      .config_2008_ASM3.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000026      
+                            0x002007    0x002008      
+            41 out of 8455 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      C_P   0x000010    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                     C_VA   0x00001f    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                     C_VB   0x00001d    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                     C_VC   0x00001b    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                      RET   0x000019    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                       VI   0x00000f    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                       VI   0x00000f    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                      C_P   0x000010    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                      RET   0x000019    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                     C_VC   0x00001b    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                     C_VB   0x00001d    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+                     C_VA   0x00001f    program     static C:\Users\Jorge\OneDrive\Escritorio\Proyectos\ASM3\ASM3.asm
+
+

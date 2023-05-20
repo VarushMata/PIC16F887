@@ -1,0 +1,19 @@
+# MPLAB IDE generated this makefile for use with Microsoft `nmake'.
+# Project: adc_display.mcp
+# Date: Sun Oct 23 20:41:54 2022
+
+AS = MPASMWIN.exe
+CC = 
+LD = mplink.exe
+AR = mplib.exe
+RM = del
+
+"adc_display.cof" : "adc_display.o"
+	$(CC) /p16F887 "adc_display.o" /u_DEBUG /z__MPLAB_BUILD=1 /z__MPLAB_DEBUG=1 /o"adc_display.cof" /M"adc_display.map" /W
+
+"adc_display.o" : "..\P1\adc_display.asm" "..\..\..\..\..\Program Files (x86)\Microchip\MPASM Suite\P16F887.INC"
+	$(AS) /q /p16F887 "C:\Users\Varush\Documents\Microcontroladores\P1\adc_display.asm" /l"adc_display.lst" /e"adc_display.err" /o"adc_display.o" /d__DEBUG=1
+
+"clean" : 
+	$(CC) "adc_display.o" "adc_display.err" "adc_display.lst" "adc_display.cof" "adc_display.hex"
+

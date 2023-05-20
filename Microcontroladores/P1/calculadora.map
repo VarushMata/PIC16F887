@@ -1,0 +1,51 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Sat Sep 03 13:16:42 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0000a0
+                   .cinit    romdata   0x000050    program   0x000004
+.config_2007_CALCULADORA.O       code   0x002007    program   0x000002
+.config_2008_CALCULADORA.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000051      
+                            0x002007    0x002008      
+            84 out of 8455 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    C_MUL   0x000042    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                      C_P   0x00000f    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                     E_MD   0x000026    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                      M_R   0x00004d    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                     NB_M   0x00003e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_DIV   0x000047    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_MUL   0x000035    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_RES   0x00001e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_SUM   0x000022    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      C_P   0x00000f    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_RES   0x00001e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_SUM   0x000022    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                     E_MD   0x000026    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_MUL   0x000035    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                     NB_M   0x00003e    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    C_MUL   0x000042    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                    X_DIV   0x000047    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+                      M_R   0x00004d    program     static C:\Users\Varush\Documents\Microcontroladores\P1\calculadora.asm
+
+

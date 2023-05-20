@@ -1,0 +1,14 @@
+_lcd_puts: CODE, 1737 0 24
+_lcd_putch: CODE, 1728 0 3
+_putch: CODE, 1720 0 8
+_main: CODE, 1884 0 164
+_lcd_clear: CODE, 1864 0 9
+_lcd_goto: CODE, 1731 0 6
+_pause: CODE, 1815 0 17
+_getch: CODE, 1647 0 6
+_printf: CODE, 1668 0 52
+_lcd_write: CODE, 1832 0 19
+_init_comms: CODE, 1653 0 15
+_msecbase: CODE, 1851 0 13
+_lcd_init: CODE, 1761 0 54
+Total: 390

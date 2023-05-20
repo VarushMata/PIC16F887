@@ -1,0 +1,15 @@
+_PWM: CODE, 1795 0 34
+_ADC: CODE, 1829 0 71
+_putch: CODE, 1711 0 6
+_main: CODE, 1491 0 73
+_lcd_clear: CODE, 2003 0 9
+___lwdiv: CODE, 1717 0 42
+_pause: CODE, 1954 0 17
+_getch: CODE, 1460 0 5
+_printf: CODE, 1564 0 147
+___lwmod: CODE, 1759 0 36
+_lcd_write: CODE, 1971 0 19
+_init_comms: CODE, 1477 0 14
+_msecbase: CODE, 1990 0 13
+_lcd_init: CODE, 1900 0 54
+Total: 540

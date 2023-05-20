@@ -1,0 +1,52 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Mon Nov 14 20:26:43 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_1       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   .org_2       code   0x000004    program   0x000002
+                   .org_3       code   0x000005    program   0x00005c
+ .config_2007_INTERRUP2.O       code   0x002007    program   0x000002
+ .config_2008_INTERRUP2.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x000032      
+                            0x002007    0x002008      
+            52 out of 8455 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   ALARMA   0x000020    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                     CEB6   0x00002d    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                      C_P   0x00001a    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                      EB6   0x00002e    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                   INICIO   0x000005    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                    PARAR   0x000027    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                     S_AI   0x00001b    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                     TIME   0x00002b    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000005    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                      C_P   0x00001a    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                     S_AI   0x00001b    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                   ALARMA   0x000020    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                    PARAR   0x000027    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                     TIME   0x00002b    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                     CEB6   0x00002d    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+                      EB6   0x00002e    program     static C:\Users\Varush\Documents\Microcontroladores\interrup2.asm
+
+

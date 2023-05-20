@@ -1,0 +1,711 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.82 build 9453 
+                                                                                               Tue Apr 26 12:18:09 2022
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 9453
+     1                           	processor	16F887
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	config,global,class=CONFIG,delta=2
+     5                           	psect	text61,local,class=CODE,delta=2
+     6                           	psect	strings,global,class=STRING,delta=2
+     7                           	psect	cinit,global,class=CODE,delta=2
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     9                           	psect	maintext,global,class=CODE,delta=2
+    10                           	psect	text62,local,class=CODE,delta=2
+    11                           	psect	text63,local,class=CODE,delta=2
+    12                           	psect	text65,local,class=CODE,delta=2
+    13                           	psect	text66,local,class=CODE,delta=2
+    14                           	psect	pa_nodes,global,class=CODE,delta=2
+    15                           	dabs	1,0x7E,2
+    16  000A                     	;#
+    17                           
+    18                           	psect	config
+    19  2007  E0D4               	dw	57556	;#
+    20  2008  FFFF               	dw	65535	;#
+    21                           
+    22                           	psect	text61
+    23  0000                     __ptext61:	
+    24  000B                     _INTCON	set	11
+    25  001A                     _RCREG	set	26
+    26  0018                     _RCSTA	set	24
+    27  0019                     _TXREG	set	25
+    28  0065                     _RCIF	set	101
+    29  0064                     _TXIF	set	100
+    30  0099                     _SPBRG	set	153
+    31  0098                     _TXSTA	set	152
+    32  043E                     _TRISC6	set	1086
+    33  043F                     _TRISC7	set	1087
+    34  0107                     _CM1CON0	set	263
+    35  0108                     _CM2CON0	set	264
+    36  0188                     _ANSEL	set	392
+    37  0189                     _ANSELH	set	393
+    38  0187                     _BAUDCTL	set	391
+    39                           
+    40                           	psect	strings
+    41  0003                     __pstrings:	
+    42  0003                     stringtab:	
+    43                           ;	global	stringdir,stringtab,__stringbase
+    44                           
+    45  0003                     stringcode:	
+    46                           ;	String table - string pointers are 1 byte each
+    47                           
+    48  0003                     stringdir:	
+    49  0003  3000               	movlw	high stringdir
+    50  0004  008A               	movwf	10
+    51  0005  0804               	movf	4,w
+    52  0006  0A84               	incf	4,f
+    53  0007  0782               	addwf	2,f
+    54  0008                     __stringbase:	
+    55  0008  3400               	retlw	0
+    56  0009                     STR_1:	
+    57  0009  3450               	retlw	80	;'P'
+    58  000A  3472               	retlw	114	;'r'
+    59  000B  3465               	retlw	101	;'e'
+    60  000C  3473               	retlw	115	;'s'
+    61  000D  3473               	retlw	115	;'s'
+    62  000E  3420               	retlw	32	;' '
+    63  000F  3461               	retlw	97	;'a'
+    64  0010  3420               	retlw	32	;' '
+    65  0011  346B               	retlw	107	;'k'
+    66  0012  3465               	retlw	101	;'e'
+    67  0013  3479               	retlw	121	;'y'
+    68  0014  3420               	retlw	32	;' '
+    69  0015  3461               	retlw	97	;'a'
+    70  0016  346E               	retlw	110	;'n'
+    71  0017  3464               	retlw	100	;'d'
+    72  0018  3420               	retlw	32	;' '
+    73  0019  3449               	retlw	73	;'I'
+    74  001A  3420               	retlw	32	;' '
+    75  001B  3477               	retlw	119	;'w'
+    76  001C  3469               	retlw	105	;'i'
+    77  001D  346C               	retlw	108	;'l'
+    78  001E  346C               	retlw	108	;'l'
+    79  001F  3420               	retlw	32	;' '
+    80  0020  3465               	retlw	101	;'e'
+    81  0021  3463               	retlw	99	;'c'
+    82  0022  3468               	retlw	104	;'h'
+    83  0023  346F               	retlw	111	;'o'
+    84  0024  3420               	retlw	32	;' '
+    85  0025  3469               	retlw	105	;'i'
+    86  0026  3474               	retlw	116	;'t'
+    87  0027  3420               	retlw	32	;' '
+    88  0028  3462               	retlw	98	;'b'
+    89  0029  3461               	retlw	97	;'a'
+    90  002A  3463               	retlw	99	;'c'
+    91  002B  346B               	retlw	107	;'k'
+    92  002C  343A               	retlw	58	;':'
+    93  002D  340D               	retlw	13
+    94  002E  340A               	retlw	10
+    95  002F  3400               	retlw	0
+    96  0030                     STR_2:	
+    97  0030  3449               	retlw	73	;'I'
+    98  0031  3420               	retlw	32	;' '
+    99  0032  3464               	retlw	100	;'d'
+   100  0033  3465               	retlw	101	;'e'
+   101  0034  3474               	retlw	116	;'t'
+   102  0035  3465               	retlw	101	;'e'
+   103  0036  3463               	retlw	99	;'c'
+   104  0037  3474               	retlw	116	;'t'
+   105  0038  3465               	retlw	101	;'e'
+   106  0039  3464               	retlw	100	;'d'
+   107  003A  3420               	retlw	32	;' '
+   108  003B  345B               	retlw	91	;'['
+   109  003C  3425               	retlw	37	;'%'
+   110  003D  3463               	retlw	99	;'c'
+   111  003E  345D               	retlw	93	;']'
+   112  003F  340D               	retlw	13
+   113  0040  340A               	retlw	10
+   114  0041  3400               	retlw	0
+   115                           
+   116                           	psect	cinit
+   117  0770                     start_initialization:	
+   118  0770                     end_of_initialization:	
+   119                           ;End of C runtime variable initialization code
+   120                           
+   121  0770  0183               	clrf	3
+   122  0771  120A  118A  2F89   	ljmp	_main	;jump to C main() function
+   123                           
+   124                           	psect	cstackCOMMON
+   125  0070                     __pcstackCOMMON:	
+   126  0070                     ?_init_comms:	
+   127  0070                     ??_init_comms:	
+   128                           ; 0 bytes @ 0x0
+   129                           
+   130  0070                     ?_putch:	
+   131                           ; 0 bytes @ 0x0
+   132                           
+   133  0070                     ??_putch:	
+   134                           ; 0 bytes @ 0x0
+   135                           
+   136  0070                     ??_getch:	
+   137                           ; 0 bytes @ 0x0
+   138                           
+   139  0070                     ?_main:	
+   140                           ; 0 bytes @ 0x0
+   141                           
+   142  0070                     ?_getch:	
+   143                           ; 0 bytes @ 0x0
+   144                           
+   145  0070                     putch@byte:	
+   146                           ; 1 bytes @ 0x0
+   147                           
+   148                           
+   149                           ; 1 bytes @ 0x0
+   150  0070                     	ds	1
+   151  0071                     ?_printf:	
+   152                           
+   153                           ; 2 bytes @ 0x1
+   154  0071                     	ds	2
+   155  0073                     ??_printf:	
+   156  0073                     printf@ap:	
+   157                           ; 0 bytes @ 0x3
+   158                           
+   159                           
+   160                           ; 1 bytes @ 0x3
+   161  0073                     	ds	1
+   162  0074                     printf@f:	
+   163                           
+   164                           ; 1 bytes @ 0x4
+   165  0074                     	ds	1
+   166  0075                     printf@c:	
+   167                           
+   168                           ; 1 bytes @ 0x5
+   169  0075                     	ds	1
+   170  0076                     ??_main:	
+   171  0076                     main@input:	
+   172                           ; 0 bytes @ 0x6
+   173                           
+   174                           
+   175                           ; 1 bytes @ 0x6
+   176  0076                     	ds	1
+   177  0077                     main@count:	
+   178                           
+   179                           ; 1 bytes @ 0x7
+   180  0077                     	ds	1
+   181                           
+   182                           	psect	maintext
+   183  0789                     __pmaintext:	
+   184 ;;Data sizes: Strings 57, constant 0, data 0, bss 0, persistent 0 stack 0
+   185 ;;Auto spaces:   Size  Autos    Used
+   186 ;; COMMON          14      8       8
+   187 ;; BANK0           80      0       0
+   188 ;; BANK1           80      0       0
+   189 ;; BANK3           96      0       0
+   190 ;; BANK2           96      0       0
+   191 ;;
+   192 ;; Pointer list with targets:
+   193 ;; printf@f	PTR const unsigned char  size(1) Largest target is 39
+   194 ;;		 -> STR_2(CODE[18]), STR_1(CODE[39]), 
+   195 ;;
+   196 ;; ?_printf	int  size(1) Largest target is 0
+   197 ;;
+   198 ;; printf@ap	PTR void [1] size(1) Largest target is 2
+   199 ;;		 -> ?_printf(COMMON[2]), 
+   200 ;;
+   201 ;; S1821$_cp	PTR const unsigned char  size(1) Largest target is 0
+   202 ;;
+   203 ;; _val._str._cp	PTR const unsigned char  size(1) Largest target is 0
+   204 ;;
+   205 ;;
+   206 ;; Critical Paths under _main in COMMON
+   207 ;;
+   208 ;;   _main->_printf
+   209 ;;   _printf->_putch
+   210 ;;
+   211 ;; Critical Paths under _main in BANK0
+   212 ;;
+   213 ;;   None.
+   214 ;;
+   215 ;; Critical Paths under _main in BANK1
+   216 ;;
+   217 ;;   None.
+   218 ;;
+   219 ;; Critical Paths under _main in BANK3
+   220 ;;
+   221 ;;   None.
+   222 ;;
+   223 ;; Critical Paths under _main in BANK2
+   224 ;;
+   225 ;;   None.
+   226 ;;
+   227 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   228 ;;
+   229 ;;
+   230 ;;Call Graph Tables:
+   231 ;;
+   232 ;; ---------------------------------------------------------------------------------
+   233 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   234 ;; ---------------------------------------------------------------------------------
+   235 ;; (0) _main                                                 2     2      0     195
+   236 ;;                                              6 COMMON     2     2      0
+   237 ;;                         _init_comms
+   238 ;;                              _putch
+   239 ;;                              _getch
+   240 ;;                             _printf
+   241 ;; ---------------------------------------------------------------------------------
+   242 ;; (1) _printf                                              11     9      2     105
+   243 ;;                                              1 COMMON     5     3      2
+   244 ;;                              _putch
+   245 ;; ---------------------------------------------------------------------------------
+   246 ;; (1) _getch                                                0     0      0       0
+   247 ;; ---------------------------------------------------------------------------------
+   248 ;; (2) _putch                                                1     1      0      15
+   249 ;;                                              0 COMMON     1     1      0
+   250 ;; ---------------------------------------------------------------------------------
+   251 ;; (1) _init_comms                                           0     0      0       0
+   252 ;; ---------------------------------------------------------------------------------
+   253 ;; Estimated maximum stack depth 2
+   254 ;; ---------------------------------------------------------------------------------
+   255 ;; Call Graph Graphs:
+   256 ;; _main (ROOT)
+   257 ;;   _init_comms
+   258 ;;   _putch
+   259 ;;   _getch
+   260 ;;   _printf
+   261 ;;     _putch
+   262 ;;
+   263 ;; Address spaces:
+   264 ;;Name               Size   Autos  Total    Cost      Usage
+   265 ;;BITCOMMON            E      0       0       0        0.0%
+   266 ;;EEDATA             100      0       0       0        0.0%
+   267 ;;NULL                 0      0       0       0        0.0%
+   268 ;;CODE                 0      0       0       0        0.0%
+   269 ;;COMMON               E      8       8       1       57.1%
+   270 ;;BITSFR0              0      0       0       1        0.0%
+   271 ;;SFR0                 0      0       0       1        0.0%
+   272 ;;BITSFR1              0      0       0       2        0.0%
+   273 ;;SFR1                 0      0       0       2        0.0%
+   274 ;;STACK                0      0       2       2        0.0%
+   275 ;;ABS                  0      0       0       3        0.0%
+   276 ;;BITBANK0            50      0       0       4        0.0%
+   277 ;;BITSFR3              0      0       0       4        0.0%
+   278 ;;SFR3                 0      0       0       4        0.0%
+   279 ;;BANK0               50      0       0       5        0.0%
+   280 ;;BITSFR2              0      0       0       5        0.0%
+   281 ;;SFR2                 0      0       0       5        0.0%
+   282 ;;BITBANK1            50      0       0       6        0.0%
+   283 ;;BANK1               50      0       0       7        0.0%
+   284 ;;BITBANK3            60      0       0       8        0.0%
+   285 ;;BANK3               60      0       0       9        0.0%
+   286 ;;BITBANK2            60      0       0      10        0.0%
+   287 ;;BANK2               60      0       0      11        0.0%
+   288 ;;DATA                 0      0       0      12        0.0%
+   289                           
+   290                           
+   291 ;; *************** function _main *****************
+   292 ;; Defined at:
+   293 ;;		line 20 in file "C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\P1\P1.c"
+   294 ;; Parameters:    Size  Location     Type
+   295 ;;		None
+   296 ;; Auto vars:     Size  Location     Type
+   297 ;;  count           1    7[COMMON] unsigned char 
+   298 ;;  input           1    6[COMMON] unsigned char 
+   299 ;; Return value:  Size  Location     Type
+   300 ;;		None               void
+   301 ;; Registers used:
+   302 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   303 ;; Tracked objects:
+   304 ;;		On entry : 17F/0
+   305 ;;		On exit  : 11F/0
+   306 ;;		Unchanged: FFE80/0
+   307 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   308 ;;      Params:         0       0       0       0       0
+   309 ;;      Locals:         2       0       0       0       0
+   310 ;;      Temps:          0       0       0       0       0
+   311 ;;      Totals:         2       0       0       0       0
+   312 ;;Total ram usage:        2 bytes
+   313 ;; Hardware stack levels required when called:    2
+   314 ;; This function calls:
+   315 ;;		_init_comms
+   316 ;;		_putch
+   317 ;;		_getch
+   318 ;;		_printf
+   319 ;; This function is called by:
+   320 ;;		Startup code after reset
+   321 ;; This function uses a non-reentrant model
+   322 ;;
+   323  0789                     _main:	
+   324                           
+   325                           ;P1.c: 21: unsigned char input;
+   326                           ;P1.c: 23: ANSEL = 0;
+   327                           
+   328                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   329  0789  1683               	bsf	3,5	;RP0=1, select bank3
+   330  078A  1703               	bsf	3,6	;RP1=1, select bank3
+   331  078B  0188               	clrf	8	;volatile
+   332                           
+   333                           ;P1.c: 24: ANSELH = 0;
+   334  078C  0189               	clrf	9	;volatile
+   335                           
+   336                           ;P1.c: 25: CM1CON0 = 0;
+   337  078D  1283               	bcf	3,5	;RP0=0, select bank2
+   338  078E  0187               	clrf	7	;volatile
+   339                           
+   340                           ;P1.c: 26: CM2CON0 = 0;
+   341  078F  0188               	clrf	8	;volatile
+   342                           
+   343                           ;P1.c: 28: INTCON=0;
+   344  0790  018B               	clrf	11	;volatile
+   345                           
+   346                           ;P1.c: 30: init_comms();
+   347  0791  120A  118A  277A   	fcall	_init_comms
+      +       120A  118A         
+   348                           
+   349                           ;P1.c: 35: {
+   350                           ;P1.c: 36: unsigned char count;
+   351                           ;P1.c: 37: for (count = 0x31; count <= 0x39; count = count +1)
+   352  0796  3031               	movlw	49
+   353  0797  00F7               	movwf	main@count
+   354  0798                     l2472:	
+   355                           
+   356                           ;P1.c: 38: {
+   357                           ;P1.c: 39: putch(count);
+   358  0798  0877               	movf	main@count,w
+   359  0799  120A  118A  27F8   	fcall	_putch
+      +       120A  118A         
+   360                           
+   361                           ;P1.c: 40: input = getch();
+   362  079E  120A  118A  2774   	fcall	_getch
+      +       120A  118A         
+   363  07A3  00F6               	movwf	main@input
+   364                           
+   365                           ;P1.c: 41: putch(input);
+   366  07A4  0876               	movf	main@input,w
+   367  07A5  120A  118A  27F8   	fcall	_putch
+      +       120A  118A         
+   368  07AA  303A               	movlw	58
+   369  07AB  0AF7               	incf	main@count,f
+   370  07AC  0277               	subwf	main@count,w
+   371  07AD  1C03               	skipc
+   372  07AE  2F98               	goto	l2472
+   373  07AF                     l2482:	
+   374                           
+   375                           ;P1.c: 44: {
+   376                           ;P1.c: 45: printf("Press a key and I will echo it back:\r\n");
+   377  07AF  3001               	movlw	(STR_1-__stringbase)& (0+255)
+   378  07B0  120A  118A  27C4   	fcall	_printf
+      +       120A  118A         
+   379                           
+   380                           ;P1.c: 46: input = getch();
+   381  07B5  120A  118A  2774   	fcall	_getch
+      +       120A  118A         
+   382  07BA  00F6               	movwf	main@input
+   383                           
+   384                           ;P1.c: 47: printf("I detected [%c]\r\n",input);
+   385  07BB  00F1               	movwf	?_printf
+   386  07BC  3028               	movlw	(STR_2-__stringbase)& (0+255)
+   387  07BD  01F2               	clrf	?_printf+1
+   388  07BE  120A  118A  27C4   	fcall	_printf
+      +       120A  118A         
+   389  07C3  2FAF               	goto	l2482
+   390  07C4                     __end_of_main:	
+   391                           
+   392                           	psect	text62
+   393  07C4                     __ptext62:	
+   394 ;; =============== function _main ends ============
+   395                           
+   396                           
+   397 ;; *************** function _printf *****************
+   398 ;; Defined at:
+   399 ;;		line 461 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.82\lib\doprnt.c"
+   400 ;; Parameters:    Size  Location     Type
+   401 ;;  f               1    wreg     PTR const unsigned char 
+   402 ;;		 -> STR_2(18), STR_1(39), 
+   403 ;; Auto vars:     Size  Location     Type
+   404 ;;  f               1    4[COMMON] PTR const unsigned char 
+   405 ;;		 -> STR_2(18), STR_1(39), 
+   406 ;;  _val            4    0        struct .
+   407 ;;  c               1    5[COMMON] char 
+   408 ;;  ap              1    3[COMMON] PTR void [1]
+   409 ;;		 -> ?_printf(2), 
+   410 ;;  flag            1    0        unsigned char 
+   411 ;;  prec            1    0        char 
+   412 ;; Return value:  Size  Location     Type
+   413 ;;                  2    1[COMMON] int 
+   414 ;; Registers used:
+   415 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   416 ;; Tracked objects:
+   417 ;;		On entry : 11F/0
+   418 ;;		On exit  : 11F/0
+   419 ;;		Unchanged: FFE80/0
+   420 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   421 ;;      Params:         2       0       0       0       0
+   422 ;;      Locals:         3       0       0       0       0
+   423 ;;      Temps:          0       0       0       0       0
+   424 ;;      Totals:         5       0       0       0       0
+   425 ;;Total ram usage:        5 bytes
+   426 ;; Hardware stack levels used:    1
+   427 ;; Hardware stack levels required when called:    1
+   428 ;; This function calls:
+   429 ;;		_putch
+   430 ;; This function is called by:
+   431 ;;		_main
+   432 ;; This function uses a non-reentrant model
+   433 ;;
+   434  07C4                     _printf:	
+   435                           
+   436                           ; Regs used in _printf: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   437                           ;printf@f stored from wreg
+   438  07C4  00F4               	movwf	printf@f
+   439  07C5  3071               	movlw	?_printf& (0+255)
+   440  07C6  00F3               	movwf	printf@ap
+   441  07C7                     l2460:	
+   442  07C7  0874               	movf	printf@f,w
+   443  07C8  0AF4               	incf	printf@f,f
+   444  07C9  0084               	movwf	4
+   445  07CA  120A  118A  2003   	fcall	stringdir
+      +       120A  118A         
+   446  07CF  00F5               	movwf	printf@c
+   447  07D0  08F5               	movf	printf@c,f
+   448  07D1  1903               	btfsc	3,2
+   449  07D2  0008               	return
+   450  07D3  3A25               	xorlw	37
+   451  07D4  1903               	skipnz
+   452  07D5  2FE6               	goto	l2458
+   453  07D6  0875               	movf	printf@c,w
+   454  07D7  27F8  120A  118A   	fcall	_putch
+   455  07DA  2FC7               	goto	l2460
+   456  07DB                     l2450:	
+   457  07DB  0873               	movf	printf@ap,w
+   458  07DC  0084               	movwf	4
+   459  07DD  0800               	movf	0,w
+   460  07DE  00F5               	movwf	printf@c
+   461  07DF  0AF3               	incf	printf@ap,f
+   462  07E0  0AF3               	incf	printf@ap,f
+   463  07E1                     l2454:	
+   464  07E1  0875               	movf	printf@c,w
+   465  07E2  27F8  120A  118A   	fcall	_putch
+   466  07E5  2FC7               	goto	l2460
+   467  07E6                     l2458:	
+   468  07E6  0874               	movf	printf@f,w
+   469  07E7  0AF4               	incf	printf@f,f
+   470  07E8  0084               	movwf	4
+   471  07E9  120A  118A  2003   	fcall	stringdir
+      +       120A  118A         
+   472  07EE  00F5               	movwf	printf@c
+   473                           
+   474                           ; Switch size 1, requested type "space"
+   475                           ; Number of cases is 2, Range of values is 0 to 99
+   476                           ; switch strategies available:
+   477                           ; Name         Instructions Cycles
+   478                           ; simple_byte            7     4 (average)
+   479                           ; jumptable            260     6 (fixed)
+   480                           ; rangetable           104     6 (fixed)
+   481                           ; spacedrange          206     9 (fixed)
+   482                           ; locatedrange         100     3 (fixed)
+   483                           ;	Chosen strategy is simple_byte
+   484  07EF  3A00               	xorlw	0	; case 0
+   485  07F0  1903               	skipnz
+   486  07F1  2FF7               	goto	l1075
+   487  07F2  3A63               	xorlw	99	; case 99
+   488  07F3  1903               	skipnz
+   489  07F4  2FDB               	goto	l2450
+   490  07F5  2FE1               	goto	l2454
+   491  07F6  2FC7               	goto	l2460
+   492  07F7                     l1075:	
+   493  07F7  0008               	return
+   494  07F8                     __end_of_printf:	
+   495  07F8                     __ptext64:	
+   496 ;; =============== function _getch ends ============
+   497                           
+   498                           
+   499 ;; *************** function _putch *****************
+   500 ;; Defined at:
+   501 ;;		line 55 in file "C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\P1\P1.c"
+   502 ;; Parameters:    Size  Location     Type
+   503 ;;  byte            1    wreg     unsigned char 
+   504 ;; Auto vars:     Size  Location     Type
+   505 ;;  byte            1    0[COMMON] unsigned char 
+   506 ;; Return value:  Size  Location     Type
+   507 ;;		None               void
+   508 ;; Registers used:
+   509 ;;		wreg
+   510 ;; Tracked objects:
+   511 ;;		On entry : 11F/60
+   512 ;;		On exit  : 17F/0
+   513 ;;		Unchanged: FFE80/0
+   514 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   515 ;;      Params:         0       0       0       0       0
+   516 ;;      Locals:         1       0       0       0       0
+   517 ;;      Temps:          0       0       0       0       0
+   518 ;;      Totals:         1       0       0       0       0
+   519 ;;Total ram usage:        1 bytes
+   520 ;; Hardware stack levels used:    1
+   521 ;; This function calls:
+   522 ;;		Nothing
+   523 ;; This function is called by:
+   524 ;;		_main
+   525 ;;		_printf
+   526 ;; This function uses a non-reentrant model
+   527 ;;
+   528  07F8                     _putch:	
+   529                           
+   530                           ; Regs used in _putch: [wreg]
+   531                           ;putch@byte stored from wreg
+   532  07F8  00F0               	movwf	putch@byte
+   533  07F9                     l1044:	
+   534                           ;P1.c: 57: while(!TXIF)
+   535                           
+   536  07F9  1283               	bcf	3,5	;RP0=0, select bank0
+   537  07FA  1303               	bcf	3,6	;RP1=0, select bank0
+   538  07FB  1E0C               	btfss	12,4
+   539  07FC  2FF9               	goto	l1044
+   540                           
+   541                           ;P1.c: 59: TXREG = byte;
+   542  07FD  0870               	movf	putch@byte,w
+   543  07FE  0099               	movwf	25	;volatile
+   544  07FF  0008               	return
+   545  0800                     __end_of_putch:	
+   546                           
+   547                           	psect	text63
+   548  0774                     __ptext63:	
+   549 ;; =============== function _printf ends ============
+   550                           
+   551                           
+   552 ;; *************** function _getch *****************
+   553 ;; Defined at:
+   554 ;;		line 63 in file "C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\P1\P1.c"
+   555 ;; Parameters:    Size  Location     Type
+   556 ;;		None
+   557 ;; Auto vars:     Size  Location     Type
+   558 ;;		None
+   559 ;; Return value:  Size  Location     Type
+   560 ;;                  1    wreg      unsigned char 
+   561 ;; Registers used:
+   562 ;;		wreg
+   563 ;; Tracked objects:
+   564 ;;		On entry : 11F/0
+   565 ;;		On exit  : 17F/0
+   566 ;;		Unchanged: FFE80/0
+   567 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   568 ;;      Params:         0       0       0       0       0
+   569 ;;      Locals:         0       0       0       0       0
+   570 ;;      Temps:          0       0       0       0       0
+   571 ;;      Totals:         0       0       0       0       0
+   572 ;;Total ram usage:        0 bytes
+   573 ;; Hardware stack levels used:    1
+   574 ;; This function calls:
+   575 ;;		Nothing
+   576 ;; This function is called by:
+   577 ;;		_main
+   578 ;; This function uses a non-reentrant model
+   579 ;;
+   580  0774                     _getch:	
+   581  0774                     l1050:	
+   582                           ;P1.c: 65: while(!RCIF)
+   583                           
+   584                           ; Regs used in _getch: [wreg]
+   585                           
+   586  0774  1283               	bcf	3,5	;RP0=0, select bank0
+   587  0775  1303               	bcf	3,6	;RP1=0, select bank0
+   588  0776  1E8C               	btfss	12,5
+   589  0777  2F74               	goto	l1050
+   590                           
+   591                           ;P1.c: 67: return RCREG;
+   592  0778  081A               	movf	26,w	;volatile
+   593  0779  0008               	return
+   594  077A                     __end_of_getch:	
+   595                           
+   596                           	psect	text65
+   597  077A                     __ptext65:	
+   598 ;; =============== function _putch ends ============
+   599                           
+   600                           
+   601 ;; *************** function _init_comms *****************
+   602 ;; Defined at:
+   603 ;;		line 71 in file "C:\Users\Jorge\OneDrive\Escritorio\Microcontroladores\Proyectos\P1\P1.c"
+   604 ;; Parameters:    Size  Location     Type
+   605 ;;		None
+   606 ;; Auto vars:     Size  Location     Type
+   607 ;;		None
+   608 ;; Return value:  Size  Location     Type
+   609 ;;		None               void
+   610 ;; Registers used:
+   611 ;;		wreg, status,2
+   612 ;; Tracked objects:
+   613 ;;		On entry : 17F/40
+   614 ;;		On exit  : 17F/60
+   615 ;;		Unchanged: FFE80/0
+   616 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   617 ;;      Params:         0       0       0       0       0
+   618 ;;      Locals:         0       0       0       0       0
+   619 ;;      Temps:          0       0       0       0       0
+   620 ;;      Totals:         0       0       0       0       0
+   621 ;;Total ram usage:        0 bytes
+   622 ;; Hardware stack levels used:    1
+   623 ;; This function calls:
+   624 ;;		Nothing
+   625 ;; This function is called by:
+   626 ;;		_main
+   627 ;; This function uses a non-reentrant model
+   628 ;;
+   629  077A                     _init_comms:	
+   630                           
+   631                           ;P1.c: 72: TRISC6 = 1;
+   632                           
+   633                           ; Regs used in _init_comms: [wreg+status,2]
+   634  077A  1683               	bsf	3,5	;RP0=1, select bank1
+   635  077B  1303               	bcf	3,6	;RP1=0, select bank1
+   636  077C  3019               	movlw	25
+   637  077D  1707               	bsf	7,6
+   638                           
+   639                           ;P1.c: 73: TRISC7 = 0;
+   640  077E  1387               	bcf	7,7
+   641                           
+   642                           ;P1.c: 74: SPBRG = ((int)(4000000L/(64UL * 2400) -1));
+   643  077F  0099               	movwf	25	;volatile
+   644                           
+   645                           ;P1.c: 76: RCSTA = 0x90;
+   646  0780  3090               	movlw	144
+   647  0781  1283               	bcf	3,5	;RP0=0, select bank0
+   648  0782  0098               	movwf	24	;volatile
+   649                           
+   650                           ;P1.c: 77: TXSTA = 0x20;
+   651  0783  3020               	movlw	32
+   652  0784  1683               	bsf	3,5	;RP0=1, select bank1
+   653  0785  0098               	movwf	24	;volatile
+   654                           
+   655                           ;P1.c: 78: BAUDCTL = 0;
+   656  0786  1703               	bsf	3,6	;RP1=1, select bank3
+   657  0787  0187               	clrf	7	;volatile
+   658  0788  0008               	return
+   659  0789                     __end_of_init_comms:	
+   660                           
+   661                           	psect	text66
+   662  0000                     __ptext66:	
+   663 ;; =============== function _init_comms ends ============
+   664                           
+   665  007E                     btemp	set	126	;btemp
+   666  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.82 build 9453 
+Symbol Table                                                                                   Tue Apr 26 12:18:09 2022
+
+                   pc 0002                    fsr 0004                   fsr0 0004                   indf 0000  
+                l1050 0774                  l1044 07F9                  l1053 0000                  l1047 0000  
+                l1056 0000                  l1075 07F7                  l2430 0000                  l2432 0000  
+                l2434 0000                  l2450 07DB                  l2428 0000                  l2452 0000  
+                l2460 07C7                  l2444 0000                  l2438 0000                  l2454 07E1  
+                l2462 0000                  l2480 0000                  l2472 0798                  l2464 0000  
+                l2458 07E6                  l2482 07AF                  l2474 0000                  l2466 0000  
+                l2484 0000                  l2476 0000                  l2486 0000                  l2478 0000  
+                STR_1 0009                  STR_2 0030                  _RCIF 0065                  _TXIF 0064  
+                _main 0789                  btemp 007E                  start 0000                 ?_main 0070  
+               _ANSEL 0188                 _RCREG 001A                 _RCSTA 0018                 _SPBRG 0099  
+               _TXREG 0019                 _TXSTA 0098                 _getch 0774                 _putch 07F8  
+               pclath 000A                 status 0003                 wtemp0 007E          __end_of_main 07C4  
+              ??_main 0076                ?_getch 0070                ?_putch 0070                _ANSELH 0189  
+              _INTCON 000B                _TRISC6 043E                _TRISC7 043F                _printf 07C4  
+      __pcstackCOMMON 0070         __end_of_getch 077A         __end_of_putch 0800               ??_getch 0070  
+             ??_putch 0070            __pmaintext 0789               _CM1CON0 0107               _CM2CON0 0108  
+             _BAUDCTL 0187               ?_printf 0071            _init_comms 077A       __size_of_printf 0034  
+end_of_initialization 0770               printf@c 0075               printf@f 0074           ?_init_comms 0070  
+      __end_of_printf 07F8   start_initialization 0770              ??_printf 0073   __size_of_init_comms 000F  
+           __pstrings 0003        __size_of_getch 0006        __size_of_putch 0008           __stringbase 0008  
+           main@count 0077             main@input 0076          ??_init_comms 0070              __ptext61 0000  
+            __ptext62 07C4              __ptext63 0774              __ptext64 07F8              __ptext65 077A  
+            __ptext66 0000         __size_of_main 003B    __end_of_init_comms 0789             putch@byte 0070  
+           stringcode 0003              printf@ap 0073              stringdir 0003              stringtab 0003  

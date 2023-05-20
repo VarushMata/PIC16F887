@@ -1,0 +1,18 @@
+_putch: CODE, 1793 0 6
+_main: CODE, 1063 0 441
+_atoi: CODE, 933 0 91
+_lcd_clear: CODE, 1984 0 9
+___lwdiv: CODE, 1799 0 42
+_pwm: CODE, 1504 0 33
+_isdigit: CODE, 1024 0 14
+_pause: CODE, 1931 0 17
+_valadc: CODE, 1537 0 99
+_getch: CODE, 1967 0 4
+_printf: CODE, 1636 0 157
+___lwmod: CODE, 1841 0 36
+_lcd_write: CODE, 1948 0 19
+_init_comms: CODE, 902 0 14
+___wmul: CODE, 1038 0 25
+_msecbase: CODE, 1971 0 13
+_lcd_init: CODE, 1877 0 54
+Total: 1074

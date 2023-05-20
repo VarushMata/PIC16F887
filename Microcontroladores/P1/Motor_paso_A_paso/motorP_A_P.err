@@ -1,0 +1,9 @@
+Warning[205] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 1 : Found directive in column 1. (PROCESSOR)
+Warning[215] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 1 : Processor superseded by command line.  Verify processor symbol.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 22 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 23 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 27 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 28 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 29 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 30 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\VARUSH\DOCUMENTS\MICROCONTROLADORES\P1\MOTORP_A_P.ASM 31 : Register in operand not in bank 0.  Ensure that bank bits are correct.

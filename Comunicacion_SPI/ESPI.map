@@ -1,0 +1,51 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Mon Nov 07 19:57:49 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0000fe
+                   .cinit    romdata   0x00007f    program   0x000004
+      .config_2007_ESPI.O       code   0x002007    program   0x000002
+      .config_2008_ESPI.O       code   0x002008    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000080      
+                            0x002007    0x002008      
+            131 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      C_P   0x00002b    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                     EDT0   0x00007b    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      L2B   0x00006d    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      LC5   0x000030    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      LC6   0x00003b    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      RET   0x000079    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                       SL   0x000063    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                    SLAVE   0x000060    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                       W1   0x000026    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                       W1   0x000026    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      C_P   0x00002b    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      LC5   0x000030    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      LC6   0x00003b    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                    SLAVE   0x000060    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                       SL   0x000063    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      L2B   0x00006d    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                      RET   0x000079    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+                     EDT0   0x00007b    program     static C:\Users\Varush\Downloads\Comunicacion_SPI\ESPI.asm
+
+
